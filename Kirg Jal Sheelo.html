@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dossier Personnage : Kirg Jal Sheelo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #222; /* Noir quasi pur */
+            --accent-color: #888; /* Gris pour les lignes secondaires */
+            --bg-color: #ffffff;
+        }
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--main-color);
+            margin: 0;
+            padding: 40px;
+            font-size: 13px; /* Légèrement réduit pour tout faire tenir */
+            -webkit-print-color-adjust: exact;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 2px solid var(--main-color);
+            padding: 20px;
+        }
+        /* En-tête avec Photo */
+        header {
+            border-bottom: 3px solid var(--main-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+        }
+        .profile-frame {
+            width: 100px;
+            height: 120px;
+            border: 2px dashed var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f4f4;
+            color: var(--accent-color);
+            flex-shrink: 0;
+            font-size: 10px;
+            text-align: center;
+        }
+        .header-info {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Titres de section */
+        .section-title {
+            background-color: var(--main-color);
+            color: var(--bg-color);
+            padding: 4px 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        /* Stats Grid */
+        .grid-stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .stat-box { border: 1px solid var(--main-color); padding: 5px; }
+        .stat-val { font-size: 22px; font-weight: bold; display: block;}
+        .stat-label { font-size: 11px; text-transform: uppercase; }
+
+        /* Jauges Vitales */
+        .vitals-bar {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding: 8px 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        /* Tableau d'équipement */
+        .gear-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .gear-table th {
+            text-align: left;
+            background: #eee;
+            padding: 4px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+        .gear-table td {
+            padding: 4px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+        }
+
+        /* Compétences (3 colonnes) */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        .skill-group h3 {
+            border-bottom: 1px solid var(--main-color);
+            margin-bottom: 6px;
+            font-size: 14px;
+            margin-top: 0;
+        }
+        .skill-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+            font-size: 12px;
+        }
+        .dice { font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif; font-size: 11px; }
+
+        /* Textes */
+        .text-block { text-align: justify; line-height: 1.3; font-size: 12px; margin-bottom: 8px; }
+        .note-box { border: 1px dashed var(--accent-color); padding: 10px; background: #f9f9f9; height: 80px;}
+
+        /* Impression */
+        @media print {
+            body { padding: 0; }
+            .container { border: none; }
+            .no-print { display: none; }
+            .page-break {
+                display: block;
+                break-after: page;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="no-print" style="text-align: center; margin-bottom: 20px;">
+    <button onclick="window.print()" style="padding: 10px 20px; cursor: pointer; background: black; color: white; border: none; font-family: inherit;">IMPRIMER / PDF</button>
+</div>
+
+<div class="container">
+    <header>
+        <div class="profile-frame">
+            <img src="kaleesh.png" width="100px" height="120px">
+        </div>
+
+        <div class="header-info">
+            <div>
+                <h1>KIRG JAL SHEELO</h1>
+                <div class="subtitle">Dossier : Alliance Galactique // Réf : KAL-KJS-07</div>
+            </div>
+            <div style="text-align: right; font-size: 12px;">
+                <div><strong>Espèce :</strong> Kaleesh</div>
+                <div><strong>Carrière :</strong> Chasseur de Primes</div>
+                <div><strong>Spécialité :</strong> Assassin</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid-stats">
+        <div class="stat-box"><span class="stat-val">3</span><span class="stat-label">Vigueur</span></div>
+        <div class="stat-box"><span class="stat-val">4</span><span class="stat-label">Agilité</span></div>
+        <div class="stat-box"><span class="stat-val">1</span><span class="stat-label">Intellect</span></div>
+        <div class="stat-box"><span class="stat-val">2</span><span class="stat-label">Ruse</span></div>
+        <div class="stat-box"><span class="stat-val">3</span><span class="stat-label">Volonté</span></div>
+        <div class="stat-box"><span class="stat-val">1</span><span class="stat-label">Présence</span></div>
+    </div>
+
+    <div class="vitals-bar">
+        <div><strong>Blessures :</strong> 14</div>
+        <div><strong>Stress :</strong> 14</div>
+        <div><strong>Encaissement :</strong> 2</div>
+        <div><strong>Crédits :</strong> 48</div>
+    </div>
+
+    <div class="section-title">LOGISTIQUE & ARMEMENT</div>
+    <table class="gear-table">
+        <tr>
+            <th width="20%">Carabine Blaster</th>
+            <td>
+                Dégâts : 9 | Critique : 3 | Portée : Moyenne<br>
+                <em>Spécial : Mode Étourdissant (Dégâts de stress)</em>
+            </td>
+        </tr>
+        <tr>
+            <th width="20%">Vibroknife</th>
+            <td>
+                Dégâts : 3 | Critique : 2 | Portée : Engagé<br>
+                <em>Perforant 2 | Sanguinaire 1</em>
+            </td>
+        </tr>
+        <tr>
+            <th>Matériel</th>
+            <td>
+                <strong>• Stimpack :</strong> Soigne 5 blessures.<br>
+                <strong>• Stimpack :</strong> Soigne 5 blessures.<br>
+            </td>
+        </tr>
+        <tr>
+            <th>Inventaire</th>
+            <td>
+                <strong>Encombrement :</strong> 4 / 7
+            </td>
+        </tr>
+    </table>
+
+    <div class="section-title">MATRICE DE COMPÉTENCES</div>
+    <div class="skills-container">
+        
+        <div class="skill-group">
+            <h3>Générales</h3>
+            <div class="skill-row"><span>Astrogation</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Athlétisme</span> <span class="dice">🟡 🟢 🟢</span></div>
+            <div class="skill-row"><span>Calme</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Charme</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Coercition</span> <span class="dice">🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Commandement</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Coordination</span> <span class="dice">🟢 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Discrétion</span> <span class="dice">🟡 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Informatique</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Magouille</span> <span class="dice">🟢 🟢</span></div>
+            <div class="skill-row"><span>Mécanique</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Médecine</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Négociation</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Perception</span> <span class="dice">🟡 🟢</span></div>
+            <div class="skill-row"><span>Pilotage (Plan.)</span> <span class="dice">🟢 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Pilotage (Spat.)</span> <span class="dice">🟢 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Résistance</span> <span class="dice">🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Sang-Froid</span> <span class="dice">🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Survie</span> <span class="dice">🟢 🟢</span></div>
+            <div class="skill-row"><span>Système D</span> <span class="dice">🟢 🟢</span></div>
+            <div class="skill-row"><span>Tromperie</span> <span class="dice">🟢 🟢</span></div>
+            <div class="skill-row"><span>Vigilance</span> <span class="dice">🟡 🟢 🟢</span></div>
+        </div>
+
+        <div class="skill-group">
+            <h3>Combat</h3>
+            <div class="skill-row"><span>Dist. Légère</span> <span class="dice">🟢 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Dist. Lourde</span> <span class="dice">🟡 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Artillerie</span> <span class="dice">🟢 🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Corps à corps</span> <span class="dice">🟡 🟡 🟡</span></div>
+            <div class="skill-row"><span>Pugilat</span> <span class="dice">🟢 🟢 🟢</span></div>
+            <div class="skill-row"><span>Sabre Laser</span> <span class="dice">🟢 🟢 🟢</span></div>
+
+            <h3 style="margin-top: 15px;">Connaissances</h3>
+            <div class="skill-row"><span>Bordure Ext.</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Culture</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Éducation</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Monde du Noyau</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Pègre</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Stratégie</span> <span class="dice">🟢</span></div>
+            <div class="skill-row"><span>Xénologie</span> <span class="dice">🟢</span></div>
+        </div>
+        
+        <div class="skill-group">
+             <h3>Obligation : 10</h3>
+             <div class="text-block">
+                 <strong>Obsession :</strong> Je dois traquer sans relâche les objets légendaires ayant appartenu au Général Grievious à travers la galaxie pour restaurer la gloire de mon peuple.
+             </div>
+        </div>
+    </div>
+    <div class="page-break"></div>
+    <div class="section-title">HISTORIQUE : KIRG JAL SHEELO, L'ASPIRANT DE L'ACIER</div>
+    <div class="text-block">
+HISTORIQUE : KIRG JAL SHEELO, L'ASPIRANT DE L'ACIER
+<p><strong>Lorsque le général Grievous tomba</strong>, les Kaleesh élevèrent un temple de pierre et d’acier en son honneur. Ils le proclamèrent dieu de la guerre et du sacrifice : celui qui mit un terme à la guerre Huk et qui anéantit, jusqu’au dernier souffle, la race honnie des <strong>Yam'rii</strong>.</p>
+
+<p>Après les cendres de la guerre, les Kaleesh pillèrent les reliques technologiques de leurs ennemis déchus. Grâce à elles, ils abandonnèrent lentement leur condition primitive pour embrasser une nouvelle destinée. Ainsi naquit le <strong>Culte de l’Acier</strong>. Les jeunes guerriers, animés par la foi et la fureur, rêvaient d'offrir leur chair à la machine, pour <strong>remplacer leurs membres par des implants cybernétiques</strong> afin de se rapprocher de la perfection divine de Grievous.</p>
+
+<p><strong>Kirg jal Sheelo fut l’un de ces disciples</strong>. Le jour de sa cérémonie d’intronisation, il s'apprêtait à offrir une part de sa chair au <strong>Dieu-Machine</strong>, scellant son serment par le sang et l’acier. Il attendait avec une ferveur sacrée le moment où le métal fusionnerait avec son corps. <strong>Mais le rite fut brisé</strong> avant que la première greffe ne puisse être effectuée.</p>
+
+<p>L’<strong>Empire Galactique</strong>, sous les ordres de <strong>Sotorus Ramda</strong>, envahit la planète. Les légions impériales saccagèrent les temples sacrés, profanèrent les autels et pillèrent les reliques du général Grievous. Leur technologie fut arrachée, leur foi piétinée et leur peuple réduit en esclavage. Kirg resta coincé dans son enveloppe de chair, une insulte vivante à sa propre dévotion.</p>
+
+<p>Alors, dans l’ombre des ruines fumantes, une troupe de <strong>Guerriers de l’Acier</strong> se leva. Kirg jal Sheelo était des leurs. Unis par la colère et la foi, ils décidèrent de voler un vaisseau impérial, jurant d’infiltrer le croiseur ennemi. Leur but était clair : <strong>assassiner Sotorus Ramda</strong> et mettre un terme au pillage de leur monde, ou périr en martyrs au nom de Grievous.</p>
+
+<p>Ils n’eurent aucune chance. À peine le sas du vaisseau ouvert, les tirs de blaster jaillirent de toutes parts. Kirg jal Sheelo saisit son arme, prêt à faire front et à mourir. Mais l’un des guerriers, un vétéran dont le corps n'était plus que métal, le retint. Sa voix perça le chaos : « <strong>Mourir ici serait inutile. Tu n’es pas encore entièrement un Guerrier de l’Acier.</strong> Tu dois vivre. Tu dois fuir, aider ton peuple et retrouver les reliques sacrées dérobées par l’Empire. »</p>
+
+<p>Contre toute attente, <strong>Kirg jal Sheelo parvint à s’échapper</strong> à bord d’une navette volée. Le cœur brisé, il jura de rendre la liberté à Kalee. Mais la dérive spatiale fut longue. Sa navette, endommagée, fut interceptée par des ferrailleurs du <strong>Cartel des Hutt</strong>. Reconnaissant son potentiel létal, ils l'ont vendu à <strong>Teemo le Hutt</strong> comme un esclave de combat exotique.</p>
+
+<p><strong>Kirg travaille pour Teemo</strong> car le Hutt a racheté sa prime impériale, le mettant à l'abri des patrouilles de l'Empire. Pour Teemo, Kirg est un <strong>gladiateur d'élite</strong>, une bête de foire qui terrifie la foule de Mos Shuuta. Kirg accepte les combats dans l'arène car Teemo lui a fait une promesse : l'accès à de la <strong>technologie cybernétique de pointe</strong> pour enfin achever sa transformation. Pour l'instant, Kirg accumule les crédits et le sang, attendant le jour où il pourra enfin <strong>purger sa chair faible</strong> et retourner sur Kalee pour briser l'Empire.</p>
+    </div>
+
+    <div class="section-title">NOTES TACTIQUES</div>
+    <div class="note-box">
+        </div>
+
+</div>
+</body>
+</html>
