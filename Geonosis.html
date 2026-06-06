@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manuel du Système : FFG vers 2D20</title>
+    <style>
+      :root {
+        --bg-color: #0d1117;
+        --panel-bg: #161b22;
+        --border-color: #30363d;
+        --text-main: #c9d1d9;
+        --accent-yellow: #e3b341;
+        --accent-blue: #58a6ff;
+        --accent-red: #f85149;
+        --accent-green: #3fb950;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--bg-color);
+      }
+
+      header {
+        text-align: center;
+        padding: 40px 20px;
+        border-bottom: 2px solid var(--border-color);
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        color: var(--accent-yellow);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin: 0;
+        font-size: 2.2em;
+      }
+
+      h2 {
+        color: var(--accent-blue);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+
+      h3 {
+        color: #ffffff;
+      }
+
+      .card {
+        background-color: var(--panel-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .card-yellow {
+        border-left: 4px solid var(--accent-yellow);
+      }
+      .card-blue {
+        border-left: 4px solid var(--accent-blue);
+      }
+      .card-red {
+        border-left: 4px solid var(--accent-red);
+      }
+      .card-green {
+        border-left: 4px solid var(--accent-green);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      th {
+        color: var(--accent-blue);
+        font-weight: bold;
+        background-color: rgba(88, 166, 255, 0.1);
+      }
+
+      .highlight {
+        color: var(--accent-yellow);
+        font-weight: bold;
+      }
+
+      .dice-pool {
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        color: #fff;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .example-box {
+        background-color: rgba(227, 179, 65, 0.1);
+        border: 1px solid var(--accent-yellow);
+        padding: 15px;
+        border-radius: 6px;
+        font-style: italic;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Protocole de Conversion</h1>
+        <p>De Star Wars FFG / Genesys vers le Système 2D20</p>
+      </header>
+
+      <section id="personnages">
+        <h2>1. Profils et Caractéristiques</h2>
+        <p>
+          La base de votre personnage évolue pour s'adapter à la résolution au
+          d20. Les Attributs définissent la capacité brute, tandis que les
+          Compétences définissent l'expertise (Focus).
+        </p>
+
+        <div class="card card-blue">
+          <h3>Calculs des scores</h3>
+          <ul>
+            <li>
+              <strong>Attribut 2D20 :</strong> Valeur FFG + 7
+              <em>(Ex: Agilité 3 devient 10)</em>
+            </li>
+            <li>
+              <strong>Compétence 2D20 :</strong> Valeur FFG (inchangée, de 0 à
+              5)
+            </li>
+            <li>
+              <strong>Seuil de Réussite (Target Number) :</strong> Attribut +
+              Compétence
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="mecanique">
+        <h2>2. La Mécanique de Résolution</h2>
+        <p>
+          Le système remplace la réserve de dés multicolores par une réserve
+          standardisée de d20. L'objectif est d'obtenir le plus petit score
+          possible.
+        </p>
+
+        <div class="card card-green">
+          <h3>Le Jet de Dés (Remplaçant les dés Verts et Jaunes)</h3>
+          <p>
+            Par défaut, un joueur lance <strong>2d20</strong>. Pour chaque d20
+            lancé :
+          </p>
+          <ul>
+            <li>
+              Résultat
+              <strong>inférieur ou égal à la Compétence (Focus)</strong> :
+              <span class="highlight">2 Succès</span> (équivalent d'un Dé
+              Jaune).
+            </li>
+            <li>
+              Résultat <strong>inférieur ou égal au Seuil de Réussite</strong> :
+              <span class="highlight">1 Succès</span> (équivalent d'un Dé Vert).
+            </li>
+            <li>
+              Résultat <strong>supérieur au Seuil de Réussite</strong> :
+              <span class="highlight">0 Succès</span> (Échec).
+            </li>
+          </ul>
+          <div class="example-box">
+            <strong>Exemple :</strong> Attribut 10, Compétence 2 (Seuil =
+            12).<br />
+            Un jet de "2" génère 2 succès. Un jet de "11" génère 1 succès. Un
+            jet de "15" est un échec.
+          </div>
+        </div>
+
+        <div class="card card-red">
+          <h3>
+            Difficulté et Complications (Remplaçant les dés Violets et Rouges)
+          </h3>
+          <table>
+            <tr>
+              <th>Dés FFG</th>
+              <th>Concept 2D20</th>
+              <th>Mécanique</th>
+            </tr>
+            <tr>
+              <td>Dés Violets</td>
+              <td>Difficulté (D)</td>
+              <td>Chaque dé violet = +1 Succès requis (D1 à D5).</td>
+            </tr>
+            <tr>
+              <td>Dés Rouges</td>
+              <td>Plage de Complication</td>
+              <td>
+                Base : Complication sur 20.<br />+1 dé Rouge = 19-20.<br />+2
+                dés Rouges = 18-20.
+              </td>
+            </tr>
+            <tr>
+              <td>Dé Noir / Bleu</td>
+              <td>Ajustement</td>
+              <td>
+                Bleu : Baisse la Difficulté de 1 ou offre un 3e d20 gratuit.<br />Noir
+                : Augmente la Difficulté de 1.
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section id="economie">
+        <h2>3. L'Économie des Ressources</h2>
+        <p>
+          La gestion narrative des Avantages et du Destin est le cœur du
+          système.
+        </p>
+
+        <div class="card card-yellow">
+          <h3>L'Impulsion / Momentum (Remplace les Avantages)</h3>
+          <p>
+            Chaque succès obtenu <strong>au-delà</strong> de la difficulté
+            génère 1 point d'Impulsion (réserve de groupe max 6).
+          </p>
+          <ul>
+            <li>
+              <strong>Acheter des d20 :</strong> +1d20 (coûte 1), +2d20 (coûte
+              3), +3d20 (coûte 6). Max 5d20 au total.
+            </li>
+            <li>
+              <strong>Dégâts :</strong> +1 point de dégât par point dépensé.
+            </li>
+            <li>
+              <strong>Qualité/Critique :</strong> Activer une qualité d'arme
+              coûte un nombre de points égal à son score (ex: Critique 3 = 3
+              points).
+            </li>
+          </ul>
+        </div>
+
+        <div class="card card-red">
+          <h3>L'Adversité / Threat (Remplace les Menaces / Côté Obscur)</h3>
+          <p>
+            Si les joueurs n'ont pas d'Impulsion, ils peuvent acheter des d20 en
+            donnant des points d'Adversité au MJ. Le MJ utilise cette réserve
+            pour acheter des d20 pour les PNJs, déclencher des renforts, ou
+            activer des capacités redoutables.
+          </p>
+        </div>
+
+        <div class="card card-blue">
+          <h3>La Détermination (Remplace les Points de Destin)</h3>
+          <p>Points individuels rares (1 à 3 max). Dépenser 1 point permet :</p>
+          <ul>
+            <li>
+              D'obtenir un "1" automatique sur un dé avant de lancer (garantit 2
+              succès).
+            </li>
+            <li>De relancer n'importe quel nombre de dés d'une réserve.</li>
+            <li>
+              D'ignorer immédiatement une blessure grave ou une pénalité de
+              stress.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="combat">
+        <h2>4. Le Combat et l'Équipement</h2>
+        <p>L'équipement original de FFG est utilisé tel quel.</p>
+
+        <div class="card card-green">
+          <h3>Jets d'Attaque et Dégâts</h3>
+          <ul>
+            <li>
+              <strong>Jet en Opposition :</strong> L'attaquant doit dépasser la
+              Défense. Cible passive = D1. Cible qui esquive = D2. Cible qui
+              pare (Force) = D3 ou +.
+            </li>
+            <li>
+              <strong>Dégâts de l'arme :</strong> Dégâts de base FFG + Points
+              d'Impulsion dépensés.
+            </li>
+            <li>
+              <strong>Encaissement (Soak) :</strong> Vigueur FFG (score
+              d'origine, ex: 3) + Valeur d'armure.
+            </li>
+            <li>
+              <strong>Blessure :</strong> Les dégâts dépassant l'Encaissement
+              réduisent le Seuil de Blessure.
+            </li>
+          </ul>
+          <div class="example-box">
+            <strong>Exemple de Tir :</strong> Attaque au Blaster Lourd (Dégâts
+            7). Difficulté D2.<br />
+            Le joueur obtient 4 succès. Il génère 2 points d'Impulsion.<br />
+            Il dépense les 2 points pour augmenter les dégâts. Tir total : 9
+            dégâts.<br />
+            Le Stormtrooper a 5 d'Encaissement. Il perd 4 Points de Vie.
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
