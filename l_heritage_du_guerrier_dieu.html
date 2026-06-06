@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Héritage du Guerrier-Dieu</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e9e5d9; /* Couleur parchemin clair */
+        color: #2b2b2b;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #f4f1ea;
+        padding: 40px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border: 1px solid #d3cbb8;
+    }
+    h1 {
+        color: #8b0000;
+        text-transform: uppercase;
+        border-bottom: 3px solid #8b0000;
+        padding-bottom: 10px;
+        font-size: 2.5em;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    h2 {
+        color: #8b0000;
+        text-transform: uppercase;
+        border-bottom: 1px solid #8b0000;
+        margin-top: 40px;
+        font-size: 1.8em;
+    }
+    h3 {
+        color: #333333;
+        font-size: 1.4em;
+        margin-top: 30px;
+    }
+    h4 {
+        color: #555555;
+        font-size: 1.2em;
+    }
+    .read-aloud {
+        background-color: #dfd8c6;
+        border-left: 6px solid #8b0000;
+        padding: 15px 20px;
+        font-style: italic;
+        margin: 20px 0;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    }
+    .quote {
+        text-align: right;
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 30px;
+    }
+    .crawl {
+        background-color: #000000;
+        color: #ffe81f;
+        text-align: center;
+        padding: 30px;
+        margin: 30px 0;
+        font-family: 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        letter-spacing: 2px;
+        line-height: 1.8;
+        border-radius: 5px;
+    }
+    .stat-block {
+        background-color: #ffffff;
+        border: 2px solid #333;
+        padding: 0;
+        margin: 20px 0;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .stat-header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .stat-header span {
+        float: right;
+        font-size: 0.8em;
+        color: #aaa;
+        margin-top: 4px;
+    }
+    .stat-table {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+        margin: 0;
+    }
+    .stat-table th {
+        background-color: #555;
+        color: #fff;
+        padding: 8px;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        width: 16.66%;
+        border-right: 1px solid #777;
+    }
+    .stat-table th:last-child { border-right: none; }
+    .stat-table td {
+        background-color: #f9f9f9;
+        padding: 10px;
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #8b0000;
+        border-right: 1px solid #ddd;
+    }
+    .stat-table td:last-child { border-right: none; }
+    .stat-details {
+        padding: 15px;
+        font-size: 0.95em;
+    }
+    .stat-details p {
+        margin: 5px 0;
+    }
+    .secondary-stats {
+        display: flex;
+        justify-content: space-around;
+        background-color: #eaeaea;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        font-weight: bold;
+        text-align: center;
+    }
+    .secondary-stats div {
+        flex: 1;
+    }
+    ul { margin-top: 5px; }
+    li { margin-bottom: 5px; }
+    strong { color: #8b0000; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>L'Héritage du Guerrier-Dieu</h1>
+    
+    <p class="quote">
+        <em>« Ils ont pris nos mondes, ils ont pris notre chair, et maintenant ils s'amusent avec nos reliques. Cette cape n'est pas un bout de tissu. C'est l'âme de Kalee. »</em><br>
+        – Un ancien Kaleesh, murmures dans les bas-fonds.
+    </p>
+
+    <p><strong>L'Héritage du Guerrier-Dieu</strong> est une aventure conçue pour une équipe de contrebandiers, de mercenaires ou d'Explorateurs opérant en marge de la loi. Elle met particulièrement en lumière les personnages liés à la culture Kaleesh, mais offre suffisamment d'opportunités de crédits et de frissons pour motiver n'importe quel groupe hétéroclite.</p>
+    <p>L'aventure se déroule principalement sur <strong>Chandrila</strong>, dans la capitale scintillante de Hanna City, un monde du Noyau connu pour ses débats politiques et son apparente tranquillité, bien que l'ombre de l'Empire Galactique y soit omniprésente.</p>
+
+    <h2>Introduction & Synopsis</h2>
+    <p>L'histoire commence lorsque les personnages joueurs (PJ) font escale à Hanna City. Un PJ Kaleesh apprend qu'une exposition prestigieuse, « Les Vestiges de la Guerre des Clones », s'apprête à ouvrir ses portes à l'Institut des Antiquités. La pièce maîtresse de cette collection est une relique inestimable : la cape de guerre originale de Qymaen jai Sheelal, le héros déchu de Kalee plus connu sous le nom de Général Grievous.</p>
+    <p>Pour le peuple Kaleesh, voir cette relique sacrée exhibée comme un simple trophée pour l'amusement des nobles du Noyau est une insulte impardonnable. Les PJ vont devoir s'infiltrer dans l'Institut, planifier un casse minutieux en contournant la sécurité de pointe et les patrouilles impériales, et faire face à un syndicat Hutt rival qui convoite la même pièce. Enfin, ils devront fuir la planète et échapper au blocus douanier pour ramener l'artefact sur les terres sacrées de Kalee.</p>
+
+    <h3>Impliquer les Personnages</h3>
+    <ul>
+        <li><strong>Le Personnage Kaleesh (Héritage ou Devoir) :</strong> C'est le cœur émotionnel du scénario. Ce personnage ressent un appel viscéral à récupérer la cape. L'Obligation du PJ devrait être déclenchée au début de la session. S'il réussit, la valeur de son Obligation diminue de 5 à 10 points. S'il échoue, elle augmente du même montant, représentant la honte et le déshonneur.</li>
+        <li><strong>Les autres Membres du Groupe (Dettes, Faveurs, ou Cupidité) :</strong> Les autres PJ peuvent être motivés par la loyauté, mais aussi par le profit. L'Institut des Antiquités regorge d'autres artefacts mineurs qui pourraient disparaître. De plus, déjouer les plans d'un rival Hutt pourrait effacer une dette existante.</li>
+    </ul>
+
+    <div class="crawl">
+        ÉPISODE : L'HÉRITAGE DU GUERRIER-DIEU<br><br>
+        La galaxie est sous le joug de l'Empire. Alors que les mondes du Noyau célèbrent la paix impériale dans le luxe et l'abondance, les cultures de la Bordure Extérieure voient leurs histoires effacées et leurs trésors pillés.<br><br>
+        Sur la planète pacifique de CHANDRILA, l'Institut des Antiquités de Hanna City s'apprête à inaugurer une exposition consacrée à la sanglante Guerre des Clones. Parmi les trophées exhibés se trouve la cape de guerre originale de QYMAEN JAI SHEELAL, le légendaire demi-dieu du peuple Kaleesh, tragiquement connu sous le nom de Général Grievous.<br><br>
+        Pour un enfant de Kalee, laisser cette relique sacrée aux mains de collectionneurs mondains est un sacrilège absolu. Arrivé au spatioport de Hanna City avec son équipage de fortune, un plan audacieux commence à germer dans l'ombre. L'heure n'est plus aux négociations, mais à la reconquête du passé...
+    </div>
+
+    <hr>
+
+    <h2>Acte I : L'Étincelle</h2>
+    <p>Cet acte a pour but de plonger les joueurs dans l'atmosphère très particulière de Chandrila, un monde aux antipodes des bas-fonds de la Bordure Extérieure.</p>
+
+    <h3>Scène 1 : Un Écho du Passé</h3>
+    <div class="read-aloud">
+        L'air de Hanna City est d'une pureté presque artificielle. Loin de la fumée âcre des usines de Nar Shaddaa ou des tempêtes de sable de Tatooine, la capitale de Chandrila s'étend en de vastes avenues bordées d'arbres et de bâtiments d'un blanc immaculé. Le calme n'est troublé que par le bourdonnement discret des speeders de luxe et le bruit de bottes rythmé d'une patrouille de stormtroopers immaculés. Vous avez décidé de faire une halte au Cristal de Bormea, un salon-cantina huppé près du spatioport, pour prendre la température locale.
+    </div>
+    <p>L'attention du groupe est attirée par une projection tridimensionnelle. Un conservateur affable annonce l'inauguration de l'exposition « Les Vestiges de la Guerre des Clones ». L'hologramme zoome sur la pièce maîtresse : la cape de guerre de Grievous. Le PJ Kaleesh sait pertinemment qu'il ne s'agit pas de l'habit d'un cyborg, mais de la cape rituelle d'un Guerrier-Dieu. Il faut récupérer l'artefact.</p>
+
+    <h3>Scène 2 : Touristes et Voleurs</h3>
+    <div class="read-aloud">
+        L'Institut des Antiquités est un imposant dôme de permabéton et de transparacier, gardé par de majestueuses statues représentant les grands philosophes de Chandrila. À l'intérieur, le silence est de mise. L'aile de l'exposition temporaire est particulièrement bondée. Au centre d'une rotonde, sous une lumière dramatique, repose la cape. Autour d'elle, le dispositif de sécurité est à la fois discret et redoutable.
+    </div>
+    <p><strong>Le Repérage (Jets de Compétence) :</strong></p>
+    <ul>
+        <li><strong>Évaluer les patrouilles (Perception - Moyenne) :</strong> Succès : rondes toutes les 15 minutes. Avantage : gardes occupés par les VIP. Menace : un garde remarque l'insistance du PJ (+1 Infortune).</li>
+        <li><strong>Analyser la sécurité (Informatique ou Vigilance - Difficile) :</strong> Succès : réseau d'holoscanners et verrou de grade militaire. Triomphe : terminal de maintenance dissimulé repéré.</li>
+        <li><strong>Déceler une présence gênante (Pègre ou Survie - Moyenne) :</strong> Succès : repère un Weequay balafré qui observe la cape tactiquement (éclaireur Hutt).</li>
+    </ul>
+
+    <hr>
+
+    <h2>Acte II : Planifier le Casse</h2>
+
+    <h3>Scène 1 : L'Approche Sociale — Le Poids des Mots</h3>
+    <div class="read-aloud">
+        Le Pavillon des Vents est un chef-d'œuvre de l'architecture chandrilienne. Des terrasses circulaires en pierre blanche semblent flotter au-dessus de jardins d'eau cristalline. Dans ce décor de porcelaine et de soie, votre groupe détonne. Assis seul, pianotant nerveusement sur un datapad, se trouve Kaelen Voss, conservateur adjoint, le regard trahissant la frustration.
+    </div>
+    <p><strong>Test :</strong> Charme, Tromperie (Difficile) ou Négociation (Moyenne, si pot-de-vin).<br>
+    <strong>Succès :</strong> Obtention de passes VIP ou code de la porte de livraison.<br>
+    <strong>Triomphe :</strong> Plan numérique de la rotonde.<br>
+    <strong>Désastre :</strong> Kaelen panique, alerte la sécurité (+1 Difficulté à l'Acte III).</p>
+
+    <h3>Scène 2 : L'Acquisition de Matériel — L'Envers du Décor</h3>
+    <div class="read-aloud">
+        Quitter les avenues ensoleillées pour descendre dans le Secteur C-9 est un choc. L'allée est encombrée de carcasses. Au fond, l'enseigne « Réparations Trellis ». Derrière le comptoir, un Sullusté paranoïaque ajuste une lunette sur un fusil blaster. « On est fermés. Sauf si vous savez ce que vous cherchez. »
+    </div>
+    <p><strong>Test :</strong> Pègre (Moyenne) puis Négociation/Coercition (Difficile).<br>
+    <strong>Succès :</strong> Achat d'un casseur de verrou (retire 2 dés violets au casse) ou de tenues (1 dé de Fortune).<br>
+    <strong>Menace :</strong> Trellis est bavard et vend l'info au syndicat Hutt (+1 Infortune à l'Initiative de l'Acte III).</p>
+
+    <h3>Scène 3 : Le Piratage Préventif — Le Spectre dans la Machine</h3>
+    <div class="read-aloud">
+        Le réseau planétaire de Chandrila est à l'image de sa société : structuré, poli et faussement accueillant. Derrière le portail holographique de l'Institut, vous percevez le mur de glace des protocoles de sécurité impériaux. Des algorithmes de traçage patrouillent dans le code.
+    </div>
+    <p><strong>Test :</strong> Informatique (Redoutable, ou Difficile si repérage préalable réussi).<br>
+    <strong>Succès :</strong> Virus dormant implanté, permettant de désactiver l'holoscanner automatiquement.<br>
+    <strong>Désastre :</strong> L'ICE riposte, grille le terminal et déploie des stormtroopers en faction.</p>
+
+    <hr>
+
+    <h2>Acte III : Le Casse et Ses Imprévus</h2>
+
+    <h3>Scène 1 : Dans la Tanière du Gundark</h3>
+    <div class="read-aloud">
+        Vous atteignez enfin la rotonde. Sous un dôme de transparacier, la cape du Général Grievous repose sur son socle. Mais entre vous et la relique, un cylindre d'énergie crépitant et des capteurs de mouvement forment une barrière mortelle.
+    </div>
+    <p><strong>L'Extraction :</strong><br>
+    - <strong>Discrétion (Moyenne) :</strong> Pour esquiver les patrouilles.<br>
+    - <strong>Magouille/Informatique (Difficile, ou Moyenne avec équipement) :</strong> Désactiver la vitrine.<br>
+    <strong>Désastre :</strong> Volets de sécurité scellés et compte à rebours impérial lancé.</p>
+
+    <h3>Scène 2 : L'Invité Surprise</h3>
+    <div class="read-aloud">
+        Vous glissez la lourde cape dans votre sac. Un bruit de pas lourds résonne derrière vous. « Beau travail, vraiment, » résonne une voix rocailleuse. À l'entrée de la rotonde se tient le Weequay balafré, accompagné de deux mercenaires Aqualish. « Le Grand Jabba paie très cher pour les antiquités. Posez le sac. »
+    </div>
+    <p><strong>Le Face-à-face :</strong><br>
+    - <strong>Intimidation/Négociation (Difficile) :</strong> Convaincre qu'un combat ruinera tout le monde.<br>
+    - <strong>Combat (Initiative) :</strong> Si les tirs pleuvent, plus de 3 coups bruyants activent l'alarme impériale générale (si ce n'est pas déjà fait).</p>
+
+    <hr>
+
+    <h2>Acte IV : L'Exfiltration</h2>
+
+    <h3>Scène 1 : La Fuite Éperdue</h3>
+    <div class="read-aloud">
+        Les sirènes de l'Institut hurlent. Dehors, le ciel s'illumine des gyrophares de la Sécurité Chandrilienne et du rugissement des transports impériaux. Il faut courir.
+    </div>
+    <p><strong>Course-poursuite :</strong> Obtenir 3 succès globaux avant 3 échecs (Athlétisme, Pilotage ou Pègre - Moyenne/Difficile). En cas d'échec, combat brutal avec des Stormtroopers.</p>
+
+    <h3>Scène 2 : Le Verrou du Spatioport</h3>
+    <div class="read-aloud">
+        Votre vaisseau repose sur le tarmac. La tour émet : « Par ordre du BSI, tous les transpondeurs civils sont verrouillés. » Des droïdes sondes approchent.
+    </div>
+    <p><strong>Test :</strong> Tromperie (Difficile) ou Informatique (Redoutable) pour libérer les pinces d'amarrage.</p>
+
+    <h3>Scène 3 : Le Saut vers les Étoiles</h3>
+    <p>Décollage d'urgence. Deux chasseurs TIE interceptent le vaisseau. <br>
+    <strong>Test :</strong> Astrogation (Moyenne) pour calculer le saut, Pilote/Artillerie pour survivre en attendant. Puis, saut en hyperespace.</p>
+
+    <hr>
+
+    <h2>Épilogue : Le Retour sur Kalee</h2>
+    <div class="read-aloud">
+        L'air de Kalee est chaud et sec. Devant un sanctuaire ancien, les anciens de la tribu s'avancent en silence. Lorsque la cape leur est présentée, un frisson parcourt l'assemblée. Ce n'est pas qu'un bout de tissu ; c'est un morceau de leur histoire volée. Le poids de l'Empire semble insignifiant face à la grandeur retrouvée d'un dieu tombé.
+    </div>
+    <ul>
+        <li><strong>Récompenses :</strong> 15-20 XP (+5 XP bonus pour le Roleplay Kaleesh), 2000 à 5000 crédits de butin annexe.</li>
+        <li><strong>Obligation :</strong> Réduction de 10 points pour le PJ Kaleesh. Nouvelle obligation potentielle (Prime) envers le Cartel Hutt.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Profils des PNJ</h2>
+
+    <!-- Kaelen Voss -->
+    <div class="stat-block">
+        <div class="stat-header">Kaelen Voss, Conservateur <span>(Rival)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>1</td><td>2</td><td>3</td><td>2</td><td>1</td><td>3</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 1</div>
+            <div>Blessures : 10</div>
+            <div>Défense : 0/0</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences :</strong> Charme 2, Tromperie 1, Connaissance (Éducation) 3, Négociation 2.</p>
+            <p><strong>Capacités :</strong> <em>Lâcheté Mondaine</em> (Malus de 1 dé d'Infortune aux jets de Volonté face à la violence).</p>
+            <p><strong>Équipement :</strong> Vêtements de luxe, datapad (codes de bas niveau), comlink, 500 crédits.</p>
+        </div>
+    </div>
+
+    <!-- Trellis -->
+    <div class="stat-block">
+        <div class="stat-header">Trellis, Receleur Sullusté <span>(Rival)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>2</td><td>3</td><td>2</td><td>3</td><td>2</td><td>1</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 3</div>
+            <div>Blessures : 12</div>
+            <div>Défense : 0/0</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences :</strong> Mécanique 2, Magouille 2, Négociation 2, Pègre 3, Tir léger 1.</p>
+            <p><strong>Capacités :</strong> <em>Vision Nocturne</em> (Ignore les malus liés à l'obscurité).</p>
+            <p><strong>Équipement :</strong> Pistolet blaster léger dissimulé (Dégâts 5, Crit 4, Paralysie), vêtements de travail.</p>
+        </div>
+    </div>
+
+    <!-- Weequay -->
+    <div class="stat-block">
+        <div class="stat-header">Émissaire Weequay <span>(Rival)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>3</td><td>3</td><td>2</td><td>3</td><td>2</td><td>2</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 4</div>
+            <div>Blessures : 14</div>
+            <div>Défense : 1/1</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences :</strong> Tir léger 2, Corps à corps 1, Coercition 2, Pègre 2, Vigilance 1.</p>
+            <p><strong>Capacités :</strong> <em>Tacticien de rue</em> (Ajoute 1 dé de Fortune à l'Initiative de tous ses alliés proches).</p>
+            <p><strong>Équipement :</strong> Pistolet blaster lourd (Dégâts 7, Crit 3), vibro-couteau (Dégâts +1, Crit 2, Perforant 2, Vicieux 1), armure pare-éclats.</p>
+        </div>
+    </div>
+
+    <!-- Aqualish -->
+    <div class="stat-block">
+        <div class="stat-header">Mercenaire Aqualish <span>(Sbire)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>3</td><td>2</td><td>1</td><td>2</td><td>1</td><td>1</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 4</div>
+            <div>Blessures : 6 (par Sbire)</div>
+            <div>Défense : 0/0</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences de Groupe :</strong> Tir lourd, Pugilat, Coercition.</p>
+            <p><strong>Équipement :</strong> Fusil blaster (Dégâts 9, Crit 3, Longue, Paralysie), armure matelassée.</p>
+        </div>
+    </div>
+
+    <!-- Garde Institut -->
+    <div class="stat-block">
+        <div class="stat-header">Garde de l'Institut <span>(Sbire)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 3</div>
+            <div>Blessures : 5 (par Sbire)</div>
+            <div>Défense : 0/0</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences de Groupe :</strong> Tir léger, Perception, Vigilance.</p>
+            <p><strong>Équipement :</strong> Pistolet blaster paralysant, matraque paralysante (Dégâts +2, Étourdissement 3), uniforme de sécurité.</p>
+        </div>
+    </div>
+
+    <!-- Droide -->
+    <div class="stat-block">
+        <div class="stat-header">Droïde de Sécurité <span>(Sbire)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>3</td><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 4</div>
+            <div>Blessures : 5 (par Sbire)</div>
+            <div>Défense : 0/0</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences de Groupe :</strong> Tir léger, Perception.</p>
+            <p><strong>Capacités :</strong> <em>Droïde</em> (Immunisé aux toxines et effets mentaux).</p>
+            <p><strong>Équipement :</strong> Blaster intégré (Dégâts 6, Crit 3), système d'holoscanner.</p>
+        </div>
+    </div>
+
+    <!-- Stormtrooper -->
+    <div class="stat-block">
+        <div class="stat-header">Stormtrooper Impérial <span>(Sbire)</span></div>
+        <table class="stat-table">
+            <tr><th>VIG</th><th>AGI</th><th>INT</th><th>RUS</th><th>VOL</th><th>PRE</th></tr>
+            <tr><td>3</td><td>3</td><td>2</td><td>2</td><td>3</td><td>1</td></tr>
+        </table>
+        <div class="secondary-stats">
+            <div>Encaissement : 5</div>
+            <div>Blessures : 5 (par Sbire)</div>
+            <div>Défense : 0/0</div>
+        </div>
+        <div class="stat-details">
+            <p><strong>Compétences de Groupe :</strong> Tir lourd, Athlétisme, Discipline.</p>
+            <p><strong>Équipement :</strong> Fusil blaster E-11 (Dégâts 9, Crit 3, Longue), armure de Stormtrooper (+2 Encaissement), grenade à fragmentation, comlink impérial.</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

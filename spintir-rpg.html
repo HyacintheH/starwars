@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Ombre de Spintir – Acte I</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+    :root {
+      --gold: #7a5a10;
+      --gold-light: #5a4008;
+      --gold-dark: #9a7a30;
+      --red: #8a1818;
+      --bg: #ffffff;
+      --bg-card: #f5f3ee;
+      --bg-card2: #f0ede6;
+      --text: #1a1814;
+      --text-dim: #5a5550;
+      --cyan: #1a6a7a;
+      --border: #c8c0b0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Exo 2', sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 30px 30px 60px;
+    }
+
+    /* ── CRAWL ── */
+    .crawl-wrapper {
+      border: 1.5px solid var(--gold-dark);
+      border-radius: 4px;
+      background: #faf7f0;
+      padding: 28px 36px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .crawl-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(122, 90, 16, 0.04) 28px, rgba(122, 90, 16, 0.04) 29px);
+      pointer-events: none;
+    }
+
+    .crawl-episode {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .crawl-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .crawl-text {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      font-style: italic;
+      color: #4a3808;
+      text-align: center;
+      line-height: 1.9;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── CHAPTER HEADERS ── */
+    .chapter {
+      margin: 44px 0 22px;
+      padding-bottom: 8px;
+    }
+
+    .chapter::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 40%, transparent 100%);
+      margin-top: 6px;
+    }
+
+    .chapter h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .chapter-sub {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 2px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin: 30px 0 12px;
+      padding-left: 10px;
+      border-left: 3px solid var(--cyan);
+    }
+
+    h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 22px 0 8px;
+    }
+
+    /* ── NARRATION BOXES ── */
+    .narration {
+      background: #eef2f7;
+      border: 1px solid #b8c8d8;
+      border-left: 3px solid var(--cyan);
+      border-radius: 3px;
+      padding: 18px 22px;
+      margin: 16px 0;
+      font-style: italic;
+      color: #1a2a38;
+      font-size: 13px;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    .narration::before {
+      content: '▶';
+      position: absolute;
+      top: 16px;
+      left: -12px;
+      color: var(--cyan);
+      font-size: 9px;
+      background: var(--bg);
+      padding: 2px;
+    }
+
+    .narration strong,
+    .narration b {
+      color: #0a1820;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .narration em {
+      font-style: italic;
+      color: #2a3a50;
+    }
+
+    /* ── ENJEU BADGE ── */
+    .enjeu {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fdeaea;
+      border: 1px solid var(--red);
+      border-radius: 3px;
+      padding: 6px 14px;
+      margin: 10px 0 16px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--red);
+      text-transform: uppercase;
+    }
+
+    .enjeu::before {
+      content: '◈';
+      font-size: 14px;
+    }
+
+    /* ── SKILL TEST BLOCK ── */
+    .test-block {
+      background: #f5f0e8;
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+
+    .test-block .test-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .test-row {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      margin: 3px 0;
+      font-size: 13px;
+    }
+
+    .test-label {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--text-dim);
+      font-size: 11px;
+      letter-spacing: 1px;
+      min-width: 110px;
+      text-transform: uppercase;
+    }
+
+    .test-value {
+      color: var(--text);
+    }
+
+    .dice-diff {
+      color: #8a4a10;
+      font-weight: 700;
+    }
+
+    .dice-dark {
+      color: #2a5070;
+      font-weight: 700;
+    }
+
+    /* ── DICE RESULTS TABLE ── */
+    .dice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .dice-table tr {
+      border-bottom: 1px solid #d8d0c0;
+    }
+
+    .dice-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .dice-table td {
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    .dice-table td:first-child {
+      width: 120px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .result-success td:first-child {
+      color: #1a6a30;
+      background: #eaf5ec;
+    }
+
+    .result-fail td:first-child {
+      color: #8a1818;
+      background: #faeaea;
+    }
+
+    .result-adv td:first-child {
+      color: #1a3a8a;
+      background: #eaeef8;
+    }
+
+    .result-threat td:first-child {
+      color: #7a4010;
+      background: #faf0e4;
+    }
+
+    .result-triumph td:first-child {
+      color: #5a4008;
+      background: #faf5e0;
+    }
+
+    .result-disaster td:first-child {
+      color: #6a0808;
+      background: #f8e0e0;
+    }
+
+    /* ── NPC CARDS ── */
+    .npc-card {
+      border: 1px solid #c8c0a8;
+      border-left: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+
+    .npc-name {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .npc-role {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ── LOCATION HEADER ── */
+    .location-header {
+      background: #f5f0e4;
+      border: 1px solid var(--gold-dark);
+      border-radius: 4px;
+      padding: 12px 18px 12px 20px;
+      margin: 20px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .location-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .location-header h3 {
+      margin: 0;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    .location-header small {
+      display: block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    /* ── OPTION BLOCK ── */
+    .option-block {
+      border: 1px solid #c8c0a8;
+      border-radius: 4px;
+      margin: 14px 0;
+      overflow: hidden;
+    }
+
+    .option-header {
+      background: #ede8dc;
+      padding: 9px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #c8c0a8;
+    }
+
+    .option-badge {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 2px 9px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .option-badge.b {
+      background: #1a4a7a;
+    }
+
+    .option-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .option-body {
+      padding: 14px 18px;
+    }
+
+    /* ── LOOT / SHOP TABLE ── */
+    .shop-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 12.5px;
+    }
+
+    .shop-table thead tr {
+      background: #ede8dc;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .shop-table th {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 7px 12px;
+      text-align: left;
+      font-size: 11px;
+    }
+
+    .shop-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #d8d0c0;
+      vertical-align: top;
+    }
+
+    .shop-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .shop-table tr:nth-child(even) td {
+      background: #faf7f2;
+    }
+
+    .shop-table .price {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--gold);
+      white-space: nowrap;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .shop-table .item-name {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: #f0f5ee;
+      border: 1px solid #a8c0a0;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+    }
+
+    /* ── ALERT / WARNING ── */
+    .alert {
+      background: #fdeaea;
+      border: 1px solid #c84040;
+      border-radius: 3px;
+      padding: 10px 16px;
+      margin: 10px 0;
+      font-size: 13px;
+      color: #6a1010;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .alert::before {
+      content: '⚠';
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── MJ HINT ── */
+    .mj-hint {
+      background: #eef0f8;
+      border: 1px dashed #8090b8;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 12.5px;
+      color: #3a4060;
+      font-style: italic;
+    }
+
+    .mj-hint strong {
+      color: #1a2050;
+      font-style: normal;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 0 24px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .divider span {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      color: var(--gold);
+    }
+
+    /* ── INLINE ── */
+    p {
+      margin: 8px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 6px 0;
+    }
+
+    li {
+      margin: 3px 0;
+    }
+
+    strong {
+      color: #0a0808;
+    }
+
+    em {
+      color: #2a3040;
+    }
+
+    .highlight {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    code {
+      font-family: 'Share Tech Mono', monospace;
+      background: #e8f0f4;
+      padding: 1px 4px;
+      border-radius: 2px;
+      font-size: 12px;
+      color: var(--cyan);
+    }
+
+    /* ── STARS STRIP ── */
+    .stars-strip {
+      text-align: center;
+      color: var(--gold-dark);
+      letter-spacing: 6px;
+      font-size: 9px;
+      margin: 6px 0;
+      opacity: 0.6;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body {
+        font-size: 11px;
+      }
+
+      .page {
+        padding: 10px 20px 40px;
+      }
+
+      .narration::before {
+        background: #fff;
+      }
+
+      .chapter {
+        page-break-after: avoid;
+      }
+
+      .npc-card,
+      .test-block,
+      .option-block {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ═══════════════════════════════ CRAWL ═══════════════════════════════ -->
+    <div class="crawl-wrapper">
+      <div class="crawl-episode">Épisode II</div>
+      <div class="crawl-title">L'Ombre de Spintir : Le Plan Parfait<br><span
+          style="font-size:18px;letter-spacing:2px;color:var(--gold-dark)">Le Suaire de Spintir</span></div>
+      <div class="stars-strip">· · · ✦ · · · ✦ · · · ✦ · · ·</div>
+      <div class="crawl-text">
+        Le chaos règne sur la Bordure Extérieure ! Après une évasion spectaculaire des griffes de <strong>TEEMO LE
+          HUTT</strong>, l'équipage de hors-la-loi file à travers l'hyperespace à bord du cargo volé, le <strong>CROC DE
+          KRAYT</strong>.<br><br>
+        Mais la liberté n'est qu'une illusion. Le navi-ordinateur, verrouillé sur les coordonnées secrètes du gangster,
+        propulse le vaisseau vers une destination inconnue, emportant les fugitifs vers un péril qu'ils n'ont pas
+        choisi.<br><br>
+        Alors que les étoiles défilent, le guerrier <strong>KIRG</strong> arrache un secret aux archives cryptées du
+        vaisseau : au bout du voyage, sur la lointaine <strong>SPINTIR</strong>, la Cape sacrée du <strong>GÉNÉRAL
+          GRIEVOUS</strong> attend. Ce qui n'était qu'une course aveugle devient alors une quête de vengeance…
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════ INTRO ═══════════════════════════════ -->
+    <div class="chapter">
+      <div class="chapter-sub">Prologue</div>
+      <h1>Introduction</h1>
+    </div>
+
+    <h2>L'Arrivée sur Spintir</h2>
+
+    <div class="narration">
+      Le tunnel bleu et hypnotique de l'hyperespace s'effondre brutalement. Avec un gémissement métallique qui fait
+      vibrer les cloisons du <strong>Croc de Krayt</strong>, les étoiles deviennent des points fixes et froids. La
+      décélération vous plaque contre vos harnais de sécurité.<br><br>
+      Devant vous, <strong>Spintir</strong> remplit la verrière du cockpit.<br><br>
+      C'est une sphère d'un vert émeraude profond, marbrée de tourbillons nuageux blancs. Elle semble paisible, presque
+      vierge. Mais vos instruments racontent une tout autre histoire.<br><br>
+      À peine sortis de la vitesse lumière, vos consoles s'affolent. L'air dans le cockpit se charge d'électricité
+      statique. Les écrans grésillent, inondés de neige numérique.<br><br>
+      <em>« Alerte de proximité. Anomalie magnétique majeure. »</em><br><br>
+      Les aiguilles des capteurs dansent follement. Les montagnes de cette planète sont des aimants naturels géants, et
+      elles brouillent tout. Au loin, scintillant comme des diamants froids en orbite haute, vous distinguez les
+      silhouettes anguleuses de deux frégates impériales. Elles sont loin, mais leurs scanners balaient le vide.<br><br>
+      Le <strong>Croc de Krayt</strong> est pour l'instant un fantôme dans ce chaos électromagnétique, mais si vous ne
+      plongez pas immédiatement dans l'atmosphère pour vous cacher sous la couverture radar, vous deviendrez une cible
+      d'exercice pour les artilleurs impériaux.<br><br>
+      L'odeur de l'ozone saturé remplit la cabine. Le manche du pilote tremble entre ses mains. Il va falloir voler «
+      aux fesses », sans l'aide de l'ordinateur de visée.<br><br>
+      <em>À vous de jouer.</em>
+    </div>
+
+    <div class="enjeu">Enjeu : Traverser l'atmosphère et les perturbations magnétiques pour atteindre la surface sans
+      être marqué par le contrôle orbital.</div>
+
+    <h2>Actions de Soutien : Le Chaos dans le Cockpit</h2>
+    <p>L'hyperespace recrache le Croc de Krayt dans un silence mortel qui ne dure qu'une seconde. Immédiatement, les
+      alarmes hurlent. La lumière rougeâtre de l'éclairage de secours baigne le cockpit et une odeur de plastique brûlé
+      et d'ozone agresse vos narines.</p>
+
+    <!-- SILAS -->
+    <div class="npc-card">
+      <div class="npc-name">1. Silas Thorne</div>
+      <div class="npc-role">Action de soutien · Dompter la Tempête Numérique</div>
+      <p>Silas est penché sur son terminal. Les écrans crachent une neige visuelle aveuglante à cause des tempêtes
+        magnétiques de Spintir. Il doit filtrer ces parasites pour donner une fenêtre de tir au pilote.</p>
+      <div class="test-block">
+        <div class="test-title">⬡ Test de compétence</div>
+        <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Informatique</span>
+        </div>
+      </div>
+      <table class="dice-table">
+        <tr class="result-success">
+          <td>Succès</td>
+          <td>Silas tape frénétiquement. Une odeur âcre de circuits surchauffés emplit la console, mais les courbes de
+            brouillage s'alignent soudain. L'écran tactique se clarifie, offrant au pilote un couloir visuel net.</td>
+        </tr>
+        <tr class="result-fail">
+          <td>Échec</td>
+          <td>Le terminal crache une gerbe d'étincelles qui brûle les doigts de Silas. Le système de ciblage reboot en
+            boucle, laissant le pilote totalement aveugle face aux perturbations.</td>
+        </tr>
+        <tr class="result-adv">
+          <td>Avantage</td>
+          <td>Dans le chaos des fréquences, Silas intercepte un fragment audio non crypté : la voix nasillarde d'un
+            contrôleur impérial indiquant qu'une patrouille TIE vient de rentrer à la base. La voie est libre pour
+            quelques minutes.</td>
+        </tr>
+        <tr class="result-threat">
+          <td>Menace</td>
+          <td>Le processeur de la console surchauffe dangereusement. Silas doit dériver la puissance du support de vie
+            local pour éviter de griller le serveur. Une chaleur étouffante envahit le poste de communication, causant
+            <strong>1 point de Stress</strong> à Silas.</td>
+        </tr>
+        <tr class="result-triumph">
+          <td>Triomphe</td>
+          <td>Silas réussit un tour de force. Il ne se contente pas de filtrer les senseurs, il accroche le signal du
+            Croc de Krayt à la signature d'une barge de déchets automatisée impériale. Le vaisseau devient un fantôme
+            numérique.</td>
+        </tr>
+        <tr class="result-disaster">
+          <td>Désastre</td>
+          <td>En tentant de percer le brouillage, le slicer déclenche par mégarde une balise de détresse de bas niveau
+            de l'ancien propriétaire (Teemo). Les impériaux ne savent pas exactement ce que vous êtes, mais ils savent
+            qu'un vaisseau suspect vient d'entrer dans leur espace.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- KIRG -->
+    <div class="npc-card">
+      <div class="npc-name">2. Kirg Jal Sheelo</div>
+      <div class="npc-role">Action de soutien · La Force Brute</div>
+      <p>Le vaisseau tremble comme s'il allait se disloquer. Les compensateurs inertiels sont à l'agonie. Kirg doit
+        utiliser toute sa masse et sa force pour bloquer les leviers de direction manuels qui menacent d'échapper au
+        contrôle du pilote.</p>
+      <div class="test-block">
+        <div class="test-title">⬡ Test de compétence</div>
+        <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Athlétisme</span></div>
+      </div>
+      <table class="dice-table">
+        <tr class="result-success">
+          <td>Succès</td>
+          <td>Les muscles de Kirg se bandent, ses jointures blanchissent sur l'acier froid des doubles leviers. Malgré
+            les vibrations qui lui broient les os, il maintient l'assiette du vaisseau par la seule force de sa volonté.
+          </td>
+        </tr>
+        <tr class="result-fail">
+          <td>Échec</td>
+          <td>Une secousse plus violente que les autres projette Kirg contre la cloison en duracier. Le choc lui coupe
+            le souffle, et le levier lui échappe, faisant faire une embardée terrifiante au cargo.</td>
+        </tr>
+        <tr class="result-adv">
+          <td>Avantage</td>
+          <td>En tirant sur le panneau de contrôle, Kirg arrache une plaque rouillée et débloque une valve de pression
+            coincée depuis des années. Le moteur pousse un grondement de soulagement et regagne soudainement en
+            réactivité.</td>
+        </tr>
+        <tr class="result-threat">
+          <td>Menace</td>
+          <td>L'effort est titanesque. L'énergie cinétique résonne directement dans les bras et le torse du guerrier.
+            Kirg sent une déchirure musculaire naissante et subit <strong>2 points de Stress</strong>.</td>
+        </tr>
+        <tr class="result-triumph">
+          <td>Triomphe</td>
+          <td>Kirg pousse les commandes au-delà de leur butée mécanique avec un craquement sinistre. Au lieu de casser,
+            le système auxiliaire s'enclenche ! Le vaisseau gagne une poussée inespérée, permettant au pilote de faire
+            une manœuvre impossible.</td>
+        </tr>
+        <tr class="result-disaster">
+          <td>Désastre</td>
+          <td>Le levier cède purement et simplement sous la poigne de Kirg. Une conduite de fluide hydraulique éclate au
+            plafond, aspergeant le dos du guerrier et le sol du cockpit d'un liquide poisseux et glissant. Le vaisseau
+            encaisse <strong>1 Dégât Système</strong>.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- TEST PILOTAGE -->
+    <div class="test-block">
+      <div class="test-title">⬡ Test Principal : Rentrée Atmosphérique</div>
+      <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Pilotage (Espace)
+          <em>ou</em> Astrogation (Intellect)</span></div>
+      <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2 Violets)</span>
+      </div>
+      <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">2 Dés Noirs</span> <span
+          class="test-value" style="font-size:13px;color:var(--text-dim)">(Interférences magnétiques + Méconnaissance du
+          terrain)</span></div>
+    </div>
+    <table class="dice-table">
+      <tr class="result-success">
+        <td>Succès</td>
+        <td>Le pilote coupe les moteurs principaux et laisse la gravité faire le travail. Le vaisseau tombe comme une
+          pierre à travers les nuages lourds. La lumière crue des senseurs d'une frégate balaie la stratosphère juste
+          au-dessus de vous, manquant la coque de quelques mètres. Vous touchez la boue de Spintir dans un atterrissage
+          lourd mais furtif.</td>
+      </tr>
+      <tr class="result-fail">
+        <td>Échec</td>
+        <td>L'angle de rentrée est mauvais. La friction atmosphérique enflamme l'air autour du vaisseau comme une comète
+          hurlante. L'atterrissage est un crash contrôlé qui arrache les cimes d'arbres gigantesques et raye la coque.
+          Le bruit a certainement alerté la faune locale… et pire encore.</td>
+      </tr>
+      <tr class="result-adv">
+        <td>Avantage</td>
+        <td>En rasant la cime des arbres, le pilote repère du coin de l'œil une gorge rocheuse naturelle, invisible
+          depuis l'orbite. C'est l'endroit parfait pour dissimuler le Croc de Krayt des regards indiscrets une fois au
+          sol.</td>
+      </tr>
+      <tr class="result-threat">
+        <td>Menace</td>
+        <td>L'atterrissage est brutal. Le train d'atterrissage tribord s'enfonce violemment dans la boue et pousse un
+          long gémissement de métal tordu. Le vaisseau est posé, mais il ne pourra pas décoller en urgence sans quelques
+          réparations préliminaires.</td>
+      </tr>
+      <tr class="result-triumph">
+        <td>Triomphe</td>
+        <td>Un pilotage digne des plus grandes légendes de la pègre. Le pilote utilise le champ magnétique chaotique de
+          la planète pour ricocher dans l'atmosphère. Le vaisseau atterrit avec la grâce d'un oiseau de proie, et
+          l'ordinateur de bord indique zéro trace thermique laissée dans l'air. L'infiltration est totale.</td>
+      </tr>
+      <tr class="result-disaster">
+        <td>Désastre</td>
+        <td>Au moment de franchir la couche nuageuse, un éclair percute la coque et court-circuite le système de
+          camouflage. Les alarmes de proximité hurlent : un escadron de chasseurs TIE en manœuvre d'entraînement vient
+          de repérer votre signature visuelle. L'atterrissage furtif se transforme en une fuite désespérée au ras du sol
+          pour leur échapper.</td>
+      </tr>
+    </table>
+
+    <!-- ════════════════════════ CAMP DE BASE ════════════════════════ -->
+    <div class="divider"><span>✦</span></div>
+    <h2>Le Camp de Base : Silence et Boue</h2>
+    <div class="narration">
+      Les répulseurs du Croc de Krayt s'éteignent dans un sifflement décroissant. Avec une lourdeur mécanique, le
+      vaisseau s'affaisse, ses patins d'atterrissage s'enfonçant de trente centimètres dans la terre meuble avec un
+      bruit de succion écœurant. Lorsque la rampe s'abaisse, l'environnement vous assaille. L'odeur est prenante : un
+      mélange agressif de carburant mal brûlé, d'ozone électrique et de végétation en décomposition.<br><br>
+      Une pluie fine et incessante tombe, grésillant instantanément au contact de la coque brûlante du vaisseau, créant
+      une colonne de vapeur blanche et brûlante qui monte droit vers le ciel. C'est là que le problème saute aux yeux :
+      entre le métal luisamment chauffé à blanc par l'entrée atmosphérique et ce panache de vapeur, le Croc de Krayt est
+      une balise de détresse géante au milieu de cet enfer vert.<br><br>
+      Au-dessus de la canopée, le hurlement caractéristique des moteurs ioniques géminés d'une patrouille TIE déchire le
+      ciel nuageux. Ils font une ronde. S'ils repassent et voient ce reflet ou cette signature thermique, la chasse est
+      finie avant d'avoir commencé. Vous avez quelques minutes pour faire disparaître ce tas de ferraille.<br><br>
+      <em>Au travail.</em>
+    </div>
+    <p style="color:var(--text-dim);font-size:13px;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">◈
+      BATTLEMAP : Clairière aux abords de Reles</p>
+    <div class="enjeu">Enjeu : Camoufler le vaisseau pour qu'il ne soit pas repéré par les patrouilles aériennes ou les
+      promeneurs.</div>
+
+    <!-- Camouflage thermique -->
+    <div class="npc-card">
+      <div class="npc-name">1. Le Camouflage Thermique</div>
+      <div class="npc-role">L'Équipe Technique — Silas / Vau'Nola</div>
+      <p>Silas (ou Vau'Nola) doit couper tous les systèmes non-essentiels et déployer les filets de dispersion thermique
+        avant que les scanners impériaux ne verrouillent leur position.</p>
+      <div class="test-block">
+        <div class="test-title">⬡ Test de compétence</div>
+        <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Informatique
+            (Intellect) <em>ou</em> Mécanique (Intellect)</span></div>
+        <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2
+            Violets)</span></div>
+        <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">1 Dé Noir</span> <span
+            class="test-value" style="font-size:13px;color:var(--text-dim)">(Systèmes instables suite au vol)</span>
+        </div>
+      </div>
+      <table class="dice-table">
+        <tr class="result-success">
+          <td>Succès</td>
+          <td>Le bourdonnement du réacteur meurt dans un soupir. Les registres thermiques tombent à zéro. Sur les
+            scanners de l'Empire, le vaisseau n'est plus qu'un tas de roches froides.</td>
+        </tr>
+        <tr class="result-fail">
+          <td>Échec</td>
+          <td>En tentant de couper la ventilation principale, une valve de pression lâche. Le vaisseau crache un jet de
+            vapeur brûlante continu. Le vaisseau reste visible aux capteurs infrarouges <em>(le MJ ajoute un point
+              d'Obligation « Traqué » au groupe)</em>.</td>
+        </tr>
+        <tr class="result-adv">
+          <td>Avantage</td>
+          <td>En dérivant l'énergie, le technicien parvient à surcharger silencieusement les batteries des comlinks de
+            l'équipe, offrant un <strong>Dé Bleu</strong> au prochain test de communication ou de vigilance.</td>
+        </tr>
+        <tr class="result-threat">
+          <td>Menace</td>
+          <td>La précipitation provoque un court-circuit dans le panneau de contrôle de la soute. Le technicien encaisse
+            une violente décharge électrique et subit <strong>2 points de Stress</strong>.</td>
+        </tr>
+        <tr class="result-triumph">
+          <td>Triomphe</td>
+          <td>Silas parvient non seulement à masquer la signature, mais il capte la fréquence locale des sondes
+            impériales. Le datapad du groupe clignotera discrètement si une patrouille s'approche à moins d'un
+            kilomètre.</td>
+        </tr>
+        <tr class="result-disaster">
+          <td>Désastre</td>
+          <td>Le système de camouflage thermique grille complètement. Pire, les phares d'atterrissage extérieurs
+            s'allument soudainement, illuminant la forêt comme en plein jour pendant quelques secondes avant de pouvoir
+            être éteints manuellement.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Camouflage visuel -->
+    <div class="npc-card">
+      <div class="npc-name">2. Le Camouflage Visuel</div>
+      <div class="npc-role">L'Équipe Physique — Kirg / Sshirak</div>
+      <p>Pendant que l'intérieur est géré, Kirg et Sshirak doivent salir le vaisseau. Il faut casser des branches
+        géantes, ramasser des fougères et étaler cette boue noire et acide sur le duracier pour casser les reflets
+        métalliques.</p>
+      <div class="test-block">
+        <div class="test-title">⬡ Test de compétence</div>
+        <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Survie (Ruse)
+            <em>ou</em> Athlétisme (Vigueur)</span></div>
+        <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2
+            Violets)</span></div>
+        <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">1 Dé Noir</span> <span
+            class="test-value" style="font-size:13px;color:var(--text-dim)">(Boue glissante, lourde, pluie
+            incessante)</span></div>
+      </div>
+      <table class="dice-table">
+        <tr class="result-success">
+          <td>Succès</td>
+          <td>Sous l'effort, le métal disparaît sous une couche de végétation putride et de boue. À dix mètres de
+            distance, le Croc ressemble à une colline naturelle recouverte de mousse.</td>
+        </tr>
+        <tr class="result-fail">
+          <td>Échec</td>
+          <td>La végétation locale est trop gorgée d'eau et glisse sur la coque inclinée. Malgré vos efforts, de larges
+            plaques de métal réfléchissant restent désespérément visibles.</td>
+        </tr>
+        <tr class="result-adv">
+          <td>Avantage</td>
+          <td>En retournant la terre humide, vous délogez des tubercules locaux comestibles ou une mare d'eau de pluie
+            pure. L'équipe peut souffler un instant et chaque PJ récupère <strong>1 point de Stress</strong>.</td>
+        </tr>
+        <tr class="result-threat">
+          <td>Menace</td>
+          <td>La faune locale est agressive. En arrachant des branches, vous réveillez un essaim d'insectes endémiques
+            ou des rongeurs hargneux. Les morsures toxiques infligent <strong>2 points de Stress</strong> à ceux qui
+            manipulent les feuillages.</td>
+        </tr>
+        <tr class="result-triumph">
+          <td>Triomphe</td>
+          <td>En explorant le périmètre immédiat pour trouver du feuillage, vous découvrez une large cavité rocheuse
+            dissimulée par des racines millénaires. C'est un abri parfait qui offre un camouflage naturel total et un
+            endroit sec pour s'équiper.</td>
+        </tr>
+        <tr class="result-disaster">
+          <td>Désastre</td>
+          <td>Kirg ou Sshirak glisse lourdement sur la coque mouillée et lâche une énorme branche d'arbre mort qui
+            s'écrase sur l'antenne de communication principale. Le vaisseau encaisse <strong>1 Dégât Système</strong>,
+            et les communications longue distance seront impossibles sans réparations.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ════════════════════ JUNGLE ════════════════════ -->
+    <div class="divider"><span>✦</span></div>
+    <h2>La Traversée de la Jungle : L'Enfer Vert de Spintir</h2>
+
+    <div class="narration">
+      Laisser le Croc de Krayt derrière vous n'est pas rassurant. À peine vous éloignez-vous de la clairière que la
+      canopée se referme au-dessus de vos têtes, bloquant la faible lumière du jour. L'air devient immédiatement lourd,
+      poisseux. Chaque respiration a le goût de la vase et de la sève acide.<br><br>
+      Sous vos bottes, la terre n'est qu'une boue noire et affamée qui tente d'engloutir vos chevilles à chaque pas. Des
+      lianes épineuses, épaisses comme des câbles de duracier, pendent des arbres gigantesques. Le silence n'existe pas
+      ici : le bourdonnement constant d'insectes de la taille d'un poing, les craquements sinistres de branches mortes
+      et les cris lointains de prédateurs invisibles vous accompagnent. Silas doit protéger son équipement de l'humidité
+      qui s'infiltre partout, tandis que Kirg et Sshirak doivent jouer de la lame pour tailler un chemin dans ce mur
+      végétal. Vau'Nola sent la moisissure s'accrocher à ses vêtements et irriter sa peau.<br><br>
+      Il faut trouver le chemin vers Reles sans tourner en rond et sans mourir d'épuisement. C'est une épreuve
+      d'endurance et d'orientation.
+    </div>
+
+    <div class="test-block">
+      <div class="test-title">⬡ Test Principal : Trouver la Voie dans le Bourbier</div>
+      <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Survie (Ruse)</span>
+      </div>
+      <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Difficile (3
+          Violets)</span></div>
+      <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">2 Dés Noirs</span> <span
+          class="test-value" style="font-size:13px;color:var(--text-dim)">(Obscurité sous la canopée + Boue toxique
+          épuisante)</span></div>
+      <div class="test-row"><span class="test-label">Enjeu</span><span class="test-value">Atteindre la Ville Basse de
+          Reles rapidement, sans alerter les patrouilles périmètriques.</span></div>
+    </div>
+
+    <table class="dice-table">
+      <tr class="result-success">
+        <td>Succès</td>
+        <td>Le guide trouve une ancienne piste de braconniers à moitié effacée. Vous progressez avec difficulté mais
+          avec certitude. Au bout de quelques heures éreintantes, la puanteur de la végétation pourrie laisse place à
+          l'odeur chimique des raffineries. Les lumières crasseuses et vacillantes de la Ville Basse de Reles
+          apparaissent enfin à travers le feuillage.</td>
+      </tr>
+      <tr class="result-fail">
+        <td>Échec</td>
+        <td>Vous perdez toute notion d'orientation dans cette purée de pois. Après des heures de marche, vous vous
+          rendez compte que vous venez de repasser devant un arbre que Kirg a entaillé plus tôt. Le groupe perd un temps
+          précieux <em>(ce qui pourrait compliquer le rendez-vous avec Norel)</em> et chaque personnage subit <strong>2
+            points de Stress</strong>.</td>
+      </tr>
+      <tr class="result-adv">
+        <td>Avantage</td>
+        <td>Sur le chemin, le groupe découvre le cadavre à moitié dévoré d'un éclaireur impérial ou d'un mercenaire.
+          Silas ou Vau'Nola peut récupérer sur lui une cellule d'énergie pleine, un stimpack intact, ou même un comlink
+          réglé sur une fréquence locale de la garnison.</td>
+      </tr>
+      <tr class="result-threat">
+        <td>Menace</td>
+        <td>La jungle prélève son tribut. Le groupe traverse un bosquet de plantes aux spores urticantes ou s'enfonce
+          dans une vase infestée de sangsues locales. Chaque personnage subit <strong>1 Blessure pure</strong> (qui
+          ignore l'encaissement) et perd un peu de son aplomb avant d'arriver en ville.</td>
+      </tr>
+      <tr class="result-triumph">
+        <td>Triomphe</td>
+        <td>Le guide réalise un coup de maître en suivant le lit d'une rivière asséchée qui passe sous les murs
+          d'enceinte de Reles. Vous évitez non seulement les prédateurs de la jungle, mais vous débouchez directement
+          dans les bas-fonds de la ville, contournant totalement les postes de contrôle douaniers impériaux de l'entrée
+          principale.</td>
+      </tr>
+      <tr class="result-disaster">
+        <td>Désastre</td>
+        <td>Le sol se dérobe soudainement sous les pieds de l'équipe. Vous glissez dans un ravin boueux et atterrissez
+          au cœur du territoire d'une meute de prédateurs locaux (comme des Chiens Vornskr affamés ou de grosses
+          araignées de lianes). L'escouade doit gérer un combat immédiat et brutal dans des conditions désastreuses
+          <em>(malus de terrain)</em> avant de pouvoir espérer voir Reles.</td>
+      </tr>
+    </table>
+
+    <!-- DESCENTE VERS RELES -->
+    <h2>La Descente vers la Ville</h2>
+    <div class="narration">
+      Vous laissez la jungle étouffante derrière vous. Le chemin boueux débouche soudainement sur une crête rocheuse
+      balayée par le vent, et <strong>Reles</strong> vous saute au visage.<br><br>
+      La vue est saisissante. Ce n'est pas juste une ville, c'est une cicatrice industrielle accrochée au flanc de la
+      montagne magnétique.<br><br>
+      Tout en bas, noyée dans un brouillard de pollution jaunâtre et de pluie acide, s'étale la <strong>Ville
+        Basse</strong>. C'est un enchevêtrement chaotique de modules d'habitation gris, de tuyaux qui crachent de la
+      vapeur thermique et d'enseignes néon vacillantes qui se reflètent dans les flaques d'huile. D'ici, vous entendez
+      déjà la rumeur sourde de la vie en bas : des sirènes lointaines, le martèlement des usines et le bourdonnement des
+      vieux speeders. Ça sent le soufre et la misère.<br><br>
+      Mais votre regard est irrésistiblement attiré vers le haut.<br><br>
+      S'élevant au-dessus de la crasse, perçant la couche nuageuse comme une lance d'albâtre, se dresse la <strong>Tour
+        de la Gouverneure Haal</strong>. Elle est immense, blanche, immaculée. Des projecteurs illuminent ses flancs
+      lisses, et vous distinguez le ballet incessant des navettes de luxe qui accostent à son sommet, là où l'air est
+      pur et où la guerre ne semble être qu'une rumeur lointaine.<br><br>
+      Votre cible est tout là-haut, dans les nuages. Mais pour atteindre le ciel, vous allez d'abord devoir plonger dans
+      la boue.<br><br>
+      <em>Bienvenue à Reles.</em>
+    </div>
+
+    <!-- ═══════════════════════════ ACTE I ═══════════════════════════ -->
+    <div class="chapter">
+      <div class="chapter-sub">Acte I</div>
+      <h1>La Ville Basse</h1>
+    </div>
+
+    <div class="narration">
+      Vous vous enfoncez dans les entrailles de la cité. Ici, la lumière du jour ne pénètre jamais vraiment, filtrée par
+      des kilomètres de câbles, de passerelles et de smog industriel. La pluie, qui était glaciale dehors, est ici
+      tiède, chargée d'huile et de suie.<br><br>
+      L'odeur est une agression physique : un mélange écœurant de friture de rue, d'ozone électrique et de transpiration
+      de milliers d'ouvriers entassés. La foule est dense, cosmopolite et dangereuse. Personne ne vous regarde dans les
+      yeux, mais vous sentez que vos bourses sont évaluées à chaque coin de rue.<br><br>
+      Autour de la place du marché inondée, quatre enseignes se battent pour attirer l'attention à travers la brume.
+    </div>
+
+    <!-- 4 LIEUX -->
+    <div class="location-header">
+      <div class="location-icon">🟣</div>
+      <div>
+        <h3>1. Le Néon Violet</h3><small>Cantina · Informations · Contacts</small>
+      </div>
+    </div>
+    <p>Au coin de la rue, une enseigne holographique grésille en projetant une danseuse Twi'lek qui boucle à l'infini.
+      Le sol tremble sous les basses fréquences d'un morceau de Jizz agressif. L'air qui sort des ventilateurs sent le
+      tabac épicé et l'alcool bon marché. <em>C'est là que les secrets se vendent et que les contrats se signent.</em>
+    </p>
+
+    <div class="location-header">
+      <div class="location-icon">🔵</div>
+      <div>
+        <h3>2. Chez Marv</h3><small>Tech &amp; Électronique · Équipement de Slicer</small>
+      </div>
+    </div>
+    <p>Juste en face, une boutique qui ressemble à l'intérieur d'un droïde éventré. Des milliers de câbles pendent du
+      plafond comme des lianes. Des murs d'écrans diffusant de la neige statique et des codes impériaux piratés. <em>Si
+        vous cherchez des pointes de sécurité, des scanners ou de quoi faire taire une alarme, c'est dans ce capharnaüm
+        que ça se trouve.</em></p>
+
+    <div class="location-header">
+      <div class="location-icon">⬜</div>
+      <div>
+        <h3>3. La Clinique du Chrome</h3><small>Soins Clandestins · Stimpacks · Chirurgie</small>
+      </div>
+    </div>
+    <p>Contrastant avec la crasse, une façade blanche, immaculée et froide se dresse plus loin. À travers la vitrine
+      blindée, vous voyez des cuves de Bacta de seconde main et un droïde chirurgical qui nettoie ses instruments avec
+      une précision mécanique effrayante. <em>C'est l'endroit pour acheter des stimpacks illégaux ou se faire recoudre
+        sans que l'Empire ne soit prévenu.</em></p>
+
+    <div class="location-header">
+      <div class="location-icon">🟠</div>
+      <div>
+        <h3>4. L'Atelier de Soudure</h3><small>Modifications · Explosifs · Armement</small>
+      </div>
+    </div>
+    <p>Au fond de l'allée, le bruit du métal déchiré couvre la musique. Des éclairs bleus de soudure à l'arc illuminent
+      la rue par intermittence. Ça sent le métal en fusion. <em>Si vous avez besoin d'armes modifiées, d'explosifs ou
+        d'outils pour forcer un coffre-fort, c'est là qu'il faut frapper.</em></p>
+
+    <!-- ════════ NÉON VIOLET ════════ -->
+    <div class="divider"><span>✦</span></div>
+    <h2>Le Néon Violet : Bruit, Fumée et Paranoïa</h2>
+
+    <div class="narration">
+      La porte blindée du club s'écarte dans un chuintement hydraulique, libérant instantanément une onde de choc
+      sonore.<br><br>
+      Le volume est physique. Une basse lourde et répétitive, typique du Jizz industriel des bas-fonds, fait vibrer vos
+      dents et le sol sous vos bottes.<br><br>
+      L'intérieur est plongé dans une pénombre saturée de violets et de bleus électriques. Des stroboscopes tranchent
+      l'épaisse fumée de tabac et d'épice qui flotte en nappes au plafond. L'air est chaud, moite, chargé d'odeurs de
+      sueur, d'alcool frelaté et de phéromones exotiques.<br><br>
+      Sur la piste centrale, des hologrammes de danseuses Twi'lek à taille réelle ondulent dans des cages de lumière,
+      traversés parfois par des clients trop ivres pour faire la différence entre la réalité et la projection.<br><br>
+      La clientèle est un inventaire des pires espèces de la galaxie : des Rodiens qui négocient nerveusement, des
+      Aqualishs qui cherchent la bagarre, et des humains aux visages cachés par des capuchons humides. Ici, personne ne
+      pose de questions, mais tout le monde surveille tout le monde.
+    </div>
+
+    <h3>Le Test d'Enquête : Trouver le Maillon Faible</h3>
+
+    <div class="test-block">
+      <div class="test-title">⬡ Tests disponibles</div>
+      <div class="test-row"><span class="test-label">Approche sociale</span><span class="test-value">Pègre (Ruse)
+          <em>ou</em> Charme (Présence) — payer un verre au vieux barman Weequay</span></div>
+      <div class="test-row"><span class="test-label">Approche visuelle</span><span class="test-value">Perception (Ruse)
+          — analyser les comportements atypiques depuis un coin sombre</span></div>
+      <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2 Violets)</span>
+      </div>
+      <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">1 Dé Noir</span> <span
+          class="test-value" style="font-size:13px;color:var(--text-dim)">(Fumée épaisse, stroboscopes, vacarme
+          assourdissant)</span></div>
+    </div>
+
+    <table class="dice-table">
+      <tr class="result-success">
+        <td>Succès</td>
+        <td>L'information est claire. Le barman désigne d'un coup de menton une alcôve sombre au fond à gauche. Ou bien,
+          les PJ repèrent d'eux-mêmes l'anomalie : un Bith à la tête énorme, qui ne boit pas, transpire à grosses
+          gouttes et tapote frénétiquement sur un datapad. C'est votre homme.</td>
+      </tr>
+      <tr class="result-fail">
+        <td>Échec</td>
+        <td>Vous perdez un temps précieux à interroger des ivrognes ou à scruter les mauvaises tables. Pendant ce temps,
+          l'ambiance devient poisseuse. Les videurs commencent à vous regarder de travers, et le barman refuse de vous
+          servir.</td>
+      </tr>
+      <tr class="result-adv">
+        <td>Avantage</td>
+        <td>En observant la salle, vous remarquez <em>pourquoi</em> le Bith transpire. Deux humains en vestes de cuir
+          synthétique, parfaitement sobres, sont accoudés au comptoir. Leurs regards convergent systématiquement vers
+          l'alcôve du Bith. Ce sont des agents du BSI ou des chasseurs de primes. Vous êtes prévenus avant d'agir.</td>
+      </tr>
+      <tr class="result-threat">
+        <td>Menace</td>
+        <td>Vous posez trop de questions, trop fort. Les deux agents en veste de cuir entendent le mot « Tour » ou «
+          Courtier ». Ils se redressent et commencent à scruter votre groupe. Vous avez attiré leur attention, ce qui
+          ajoute <strong>1 Dé Noir</strong> à votre prochaine tentative d'approche du Bith.</td>
+      </tr>
+      <tr class="result-triumph">
+        <td>Triomphe</td>
+        <td>Non seulement vous identifiez le Bith et ses deux « chiens de garde », mais vous repérez une faille
+          monumentale. Le barman fait passer un plateau de verres à destination de l'alcôve du Bith. C'est l'opportunité
+          parfaite pour que l'un des joueurs vole la tenue d'un serveur ou intercepte le plateau pour approcher la cible
+          sous une couverture parfaite.</td>
+      </tr>
+      <tr class="result-disaster">
+        <td>Désastre</td>
+        <td>C'est la catastrophe. En tentant de jouer les durs avec un client pour obtenir des infos, Kirg ou Sshirak
+          bouscule l'un des agents en cuir synthétique. Le ton monte instantanément, une main glisse vers un blaster
+          sous la veste, et le Bith (Norel), paniqué par l'altercation, se lève pour fuir par la porte de service des
+          cuisines. Il va falloir le rattraper en plein chaos !</td>
+      </tr>
+    </table>
+
+    <!-- Norel -->
+    <div class="npc-card">
+      <div class="npc-name">Norel — L'Informateur</div>
+      <div class="npc-role">Bith · Courtier d'informations · Alcôve fond gauche</div>
+      <p>Norel est assis dans une alcôve au fond à gauche. Il a une tête énorme, des yeux noirs sans paupières, et il
+        transpire abondamment. Il tapote nerveusement sur un datapad.</p>
+      <div class="alert">Deux humains en vestes de cuir synthétique sont accoudés au bar — trop sobres pour l'heure. Ce
+        sont des agents du BSI (Bureau de Sécurité Impérial) en civil, ou des chasseurs de primes attendant qu'il sorte
+        pour le cueillir.</div>
+      <div class="test-block">
+        <div class="test-title">⬡ Test d'Identification</div>
+        <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Perception (Ruse)
+            <em>ou</em> Pègre (Ruse)</span></div>
+        <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2
+            Violets)</span></div>
+        <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">1 Dé Noir</span> <span
+            class="test-value" style="font-size:13px;color:var(--text-dim)">(Foule et fumée gênent la vue)</span></div>
+      </div>
+      <table class="dice-table">
+        <tr class="result-success">
+          <td>Succès</td>
+          <td>Vous repérez les deux agents et comprenez leur manège. Ils attendent un signal ou un mouvement de Norel.
+          </td>
+        </tr>
+        <tr class="result-fail">
+          <td>Échec</td>
+          <td>Vous pensez que la voie est libre et vous approchez de Norel, déclenchant l'intervention immédiate des
+            agents.</td>
+        </tr>
+        <tr class="result-adv">
+          <td>Avantage</td>
+          <td>Vous remarquez que la sortie de service (cuisine) est mal gardée.</td>
+        </tr>
+        <tr class="result-triumph">
+          <td>Triomphe</td>
+          <td>Vous reconnaissez l'un des agents comme un ivrogne notoire. Il n'est pas en service, il est juste là pour
+            boire, ce qui réduit la menace de moitié.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- APPROCHE -->
+    <h2>L'Approche : Le Jeu du Chat et de la Souris</h2>
+    <div class="mj-hint"><strong>Note MJ :</strong> Un plan sur le papier ne survit jamais au contact des joueurs,
+      surtout dans une cantina borgne. L'action doit être fluide et les conséquences des dés doivent donner
+      immédiatement du grain à moudre pour la narration, sans feuilleter de notes pendant cinq minutes.</div>
+
+    <div class="option-block">
+      <div class="option-header">
+        <div class="option-badge">Option A</div>
+        <div class="option-title">L'Approche Subtile — Le Coup de Bluff</div>
+      </div>
+      <div class="option-body">
+        <p>Le but est de glisser un message au Bith ou de faire diversion sans que les agents du BSI ne sortent leurs
+          blasters. Silas pourrait pirater le datapad d'un serveur, ou Vau'Nola pourrait utiliser ses charmes pour
+          bloquer la ligne de vue des agents.</p>
+        <div class="test-block">
+          <div class="test-title">⬡ Test de compétence</div>
+          <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Tromperie (Ruse)
+              <em>ou</em> Charme (Présence)</span></div>
+          <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Difficile (3
+              Violets)</span> <span class="test-value" style="font-size:13px;color:var(--text-dim)">— Jet opposé à la
+              vigilance paranoïaque des agents</span></div>
+        </div>
+        <table class="dice-table">
+          <tr class="result-success">
+            <td>Succès</td>
+            <td>L'illusion est parfaite. Vous détournez l'attention des agents juste assez longtemps pour que Norel
+              glisse vers les toilettes, où vous le rejoignez pour le transfert des plans.</td>
+          </tr>
+          <tr class="result-fail">
+            <td>Échec</td>
+            <td>Les agents ne sont pas dupes et grillent votre couverture. L'un d'eux sort un comlink pour appeler des
+              Stormtroopers en renfort, tandis que l'autre pose la main sur la crosse de son blaster.</td>
+          </tr>
+          <tr class="result-adv">
+            <td>Avantage</td>
+            <td>Le sang-froid de l'équipe impressionne le Bith. Norel vous lâche une information bonus cruciale : les
+              droïdes de sécurité du niveau 51 ont un angle mort thermique.</td>
+          </tr>
+          <tr class="result-threat">
+            <td>Menace</td>
+            <td>Vous réussissez à passer ou à faire diversion, mais les agents mémorisent vos visages. Vous gagnez
+              <strong>1 Dé Noir</strong> sur tous vos futurs tests sociaux dans la Ville Basse de Reles.</td>
+          </tr>
+          <tr class="result-triumph">
+            <td>Triomphe</td>
+            <td>C'est l'humiliation publique. L'un de vous provoque une scène magistrale (comme renverser un plateau
+              poisseux sur les agents), les forçant à quitter la cantina sous les rires gras de la faune locale. Norel
+              est totalement libre de ses mouvements.</td>
+          </tr>
+          <tr class="result-disaster">
+            <td>Désastre</td>
+            <td>L'un des agents en civil est en réalité le Capitaine de la Garde locale. Il reconnaît immédiatement vos
+              visages d'après un avis de recherche récent. L'alerte maximale est donnée.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="option-block">
+      <div class="option-header">
+        <div class="option-badge b">Option B</div>
+        <div class="option-title">La Bagarre de Bar — La Manière Forte</div>
+      </div>
+      <div class="option-body">
+        <p>Si Kirg ou Sshirak s'ennuient, déclencher une émeute est une excellente couverture. Le but n'est pas de tuer
+          les agents, mais de créer une confusion totale pour exfiltrer Norel par la porte de service.</p>
+        <div class="test-block">
+          <div class="test-title">⬡ Test de compétence</div>
+          <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Pugilat (Bagarre)
+              <em>ou</em> Corps à Corps</span></div>
+          <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2
+              Violets)</span></div>
+        </div>
+        <table class="dice-table">
+          <tr class="result-success">
+            <td>Succès</td>
+            <td>Un tabouret vole à travers la pièce ou une bouteille s'écrase sur un crâne. La cantina explose en une
+              bagarre générale frénétique. Dans le chaos des corps volants, vous attrapez le Bith par le col et
+              l'extrayez.</td>
+          </tr>
+          <tr class="result-fail">
+            <td>Échec</td>
+            <td>Vous bousculez la mauvaise personne. Un groupe de Gamorréens ou de Wookiees passablement éméchés vous
+              prend à partie. Vous êtes englués dans la mêlée et perdez de vue Norel.</td>
+          </tr>
+          <tr class="result-adv">
+            <td>Avantage</td>
+            <td>Dans la bousculade, quelqu'un fait tomber sa bourse ou lâche son arme. Vous récupérez une arme de corps
+              à corps improvisée ou 50 crédits qui traînaient dans la sciure.</td>
+          </tr>
+          <tr class="result-threat">
+            <td>Menace</td>
+            <td>Le vieux barman Weequay en a vu d'autres. Il active une alarme silencieuse sous le comptoir. Les forces
+              de sécurité de Reles débarqueront dans exactement <strong>3 tours</strong>.</td>
+          </tr>
+          <tr class="result-triumph">
+            <td>Triomphe</td>
+            <td>Un tir de blaster perdu, parti dans la panique, pulvérise le panneau d'alimentation principal. Le Néon
+              Violet est plongé dans le noir total. La fuite avec Norel est automatiquement réussie à la faveur de
+              l'obscurité.</td>
+          </tr>
+          <tr class="result-disaster">
+            <td>Désastre</td>
+            <td>Un coup de coude brutal atteint Norel en pleine figure, ou bien son précieux datapad tombe et se fait
+              piétiner par la foule. Silas devra réussir un test d'Informatique Difficile plus tard pour tenter
+              d'extraire les données corrompues de l'appareil brisé.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- RÉCOMPENSE NOREL -->
+    <div class="summary-box">
+      <h3>⬡ La Récompense : Les Secrets de la Tour</h3>
+      <p>Une fois Norel en sécurité dans la ruelle poisseuse derrière le bar, et en échange de l'effacement de sa dette
+        ou de <strong>500 crédits</strong>, le Bith tremblant livre son trésor :</p>
+      <ul style="margin-top:10px;">
+        <li>Le <strong>plan partiel des Niveaux 51 et 52</strong>, indiquant la position du Security Nexus et du
+          Sanctuaire.</li>
+        <li>La <strong>faille</strong> : une maintenance des conduits de ventilation désactive les capteurs de mouvement
+          du secteur 4 ce soir.</li>
+        <li>L'<strong>avertissement</strong> qui fait froid dans le dos : un garde d'élite — ou quelque chose qui
+          respire — veille dans la salle des trophées de la Gouverneure.</li>
+      </ul>
+    </div>
+
+    <!-- ════════════════════ SHOPPING ════════════════════ -->
+    <div class="divider"><span>✦</span></div>
+    <h2>Le Shopping « Spécialisé »</h2>
+    <div class="narration">
+      Vous quittez la moiteur du Néon Violet pour retourner sous la pluie acide. Norel vous a donné la cible, mais pour
+      entrer dans la Tour de la Gouverneure, il vous faut des outils, pas juste du courage. La Ville Basse est un
+      immense magasin à ciel ouvert pour qui connaît les codes.
+    </div>
+    <p style="color:var(--text-dim);font-size:13px;font-family:'Share Tech Mono',monospace;letter-spacing:1px;">◈
+      BATTLEMAPS : Ville Basse (Clinique / Tech / Marché) · Atelier de Soudure</p>
+
+    <!-- MARV -->
+    <div class="location-header">
+      <div class="location-icon">🔧</div>
+      <div>
+        <h3>L'Échoppe de Marv</h3><small>La Fosse aux Étincelles · Tech &amp; Slicer</small>
+      </div>
+    </div>
+    <div class="narration">
+      Dès que vous franchissez le seuil de la boutique de Marv, vos yeux pleurent. L'air est saturé d'une fumée âcre de
+      soudure au laser et d'ozone. Il fait une chaleur étouffante. La pièce n'est qu'un chaos organisé de carcasses de
+      droïdes astromechs désossés, de câbles dénudés qui pendent du plafond comme des lianes mortes, et d'écrans
+      crachant des lignes de code vert fluo.<br><br>
+      Soudain, une pluie d'étincelles jaillit d'un amas de ferraille au plafond. <strong>Marv</strong>, une petite
+      créature poilue semblable à une chauve-souris au museau écrasé, se laisse tomber sur le comptoir. Il porte des
+      lunettes de protection trop grandes pour lui et un tablier en cuir synthétique constellé de brûlures. Il parle à
+      une vitesse vertigineuse, les mains toujours en mouvement.
+    </div>
+
+    <h3>Ce que Marv sait sur le Suaire et la Tour</h3>
+    <ul>
+      <li><strong>Le Coffre-Fort Statique :</strong> La Gouverneure Haal a fait installer un nouveau champ de stase
+        énergétique au niveau 52 la semaine dernière. Technologie militaire de pointe, conçue pour préserver des
+        matières organiques ou des tissus anciens.</li>
+      <li><strong>L'Alimentation :</strong> Ce champ de stase est relié à une génératrice de secours indépendante.
+        Couper le courant de la Tour ne désactivera pas la vitrine du Suaire.</li>
+      <li><strong>Le Verrou Biométrique :</strong> La console de la salle des trophées nécessite un code d'accès rotatif
+        ET une empreinte thermique approuvée. Silas va devoir transpirer pour pirater ça.</li>
+    </ul>
+
+    <div class="test-block">
+      <div class="test-title">⬡ Négocier avec le Rat de la Bidouille</div>
+      <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Informatique (Intellect)
+          <em>ou</em> Négociation (Présence)</span></div>
+      <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2 Violets)</span>
+      </div>
+      <div class="test-row"><span class="test-label">Bonus</span><span class="test-value" style="color:#40cc70;">+1 Dé
+          Bleu</span> <span class="test-value" style="font-size:13px;color:var(--text-dim)">si Silas montre son propre
+          équipement de slicing</span></div>
+      <div class="test-row"><span class="test-label">Contrainte</span><span class="dice-dark">+1 Dé Noir</span> <span
+          class="test-value" style="font-size:13px;color:var(--text-dim)">si les PJ ont causé un grabuge majeur au Néon
+          Violet</span></div>
+    </div>
+    <table class="dice-table">
+      <tr class="result-success">
+        <td>Succès</td>
+        <td>Marv craque. Il griffonne sur un datapad crasseux le schéma du réseau d'alimentation de la vitrine stase de
+          la Gouverneure. Il accorde également une remise de 10% sur tout son inventaire.</td>
+      </tr>
+      <tr class="result-fail">
+        <td>Échec</td>
+        <td>Marv renifle avec mépris. Il refuse de lâcher ses secrets de sécurité sans un paiement d'avance exorbitant
+          (au moins 300 crédits rien que pour l'information).</td>
+      </tr>
+      <tr class="result-adv">
+        <td>Avantage</td>
+        <td>Marv se prend d'affection pour les outils d'un des PJ. En discutant, il lâche un détail inestimable : les
+          droïdes sentinelles du niveau 52 ont un cycle de reboot de <strong>3 secondes</strong> toutes les heures
+          piles.</td>
+      </tr>
+      <tr class="result-threat">
+        <td>Menace</td>
+        <td>Marv est paranoïaque. En cherchant les plans dans sa base de données, il laisse malencontreusement une trace
+          de sa requête sur le réseau local. Le sous-programme de sécurité de la Tour enregistre une légère anomalie, ce
+          qui ajoutera <strong>1 Dé Noir</strong> au premier test d'infiltration furtive dans la Tour.</td>
+      </tr>
+      <tr class="result-triumph">
+        <td>Triomphe</td>
+        <td>Un coup de maître. Marv est tellement impressionné qu'il offre gracieusement une vieille <strong>carte
+            d'accès d'entretien</strong> (grade inférieur). Elle n'ouvrira pas la salle du trésor, mais permettra de
+          passer les monte-charges de service des 20 premiers étages sans déclencher d'alerte.</td>
+      </tr>
+      <tr class="result-disaster">
+        <td>Désastre</td>
+        <td>L'ego de Marv est froissé par une remarque condescendante, ou Silas tente de fouiller l'ordinateur de la
+          boutique en douce. Marv déclenche une alarme silencieuse. Il vendra quelques babioles, mais enverra ensuite un
+          message anonyme aux douanes impériales pour signaler des étrangers suspects.</td>
+      </tr>
+    </table>
+
+    <h3>Arsenal de Marv</h3>
+    <table class="shop-table">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Description</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-name">Pointeurs de Slicer (Custom)</td>
+          <td>Ajoute <strong>1 Dé Bleu</strong> à tout test d'Informatique pour pirater des terminaux impériaux de basse
+            sécurité.</td>
+          <td class="price">400 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Brouilleur de Comlink</td>
+          <td>Coupe toutes les communications sans fil dans un rayon de 20 m pendant 3 minutes. Recharge via test
+            Mécanique.</td>
+          <td class="price">600 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Grenades à Ions (×3)</td>
+          <td>Dévastatrices contre les droïdes de sécurité ou les caméras. Inoffensives contre les êtres vivants.</td>
+          <td class="price">250 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Scanner Thermique de Poche</td>
+          <td>Modifié pour percer à travers une couche d'acier standard. Repère les gardes derrière les portes fermées.
+          </td>
+          <td class="price">350 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Glitterstim (1 dose)</td>
+          <td>+1 Dé Bleu aux tests de Perception et Vigilance pour la scène. Inflige <strong>2 Stress</strong> à la fin
+            de l'effet.</td>
+          <td class="price">100 cr.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- DOC VILSA -->
+    <div class="location-header">
+      <div class="location-icon">⬜</div>
+      <div>
+        <h3>Le Dispensaire de Doc Vilsa</h3><small>Sang, Bacta et Rouille · Clinique Clandestine</small>
+      </div>
+    </div>
+    <div class="narration">
+      L'entrée de la clinique est dissimulée derrière un rideau de lanières en plastique poisseux. Dès que vous
+      franchissez le seuil, l'odeur vous prend à la gorge : un mélange écœurant d'antiseptique industriel, d'ozone et de
+      sang séché. La pièce est mal éclairée par des néons grésillants qui projettent une lueur verdâtre sur des tables
+      d'opération en duracier rayé.<br><br>
+      Dans un coin, une cuve à bacta fêlée bouillonne doucement, contenant un liquide trouble. Au centre de la pièce,
+      <strong>Doc Vilsa</strong>, une humaine aux traits tirés et aux mains couvertes de tatouages chimiques, est en
+      train d'extraire un éclat de shrapnel de l'épaule d'un mercenaire hurleur. Elle ne lève même pas les yeux vers
+      vous et grogne : <em>« Si vous saignez, asseyez-vous. Si vous venez vendre des organes, allez voir derrière. Si
+        c'est autre chose, parlez vite, je perds ce patient. »</em>
+    </div>
+
+    <h3>Ce que Doc Vilsa sait</h3>
+    <ul>
+      <li><strong>La Chose qui respire :</strong> La Gouverneure possède un Nexu génétiquement modifié, perfusé aux
+        stéroïdes de combat. Presque insensible à la douleur, mais son métabolisme ultra-rapide le rend vulnérable aux
+        neurotoxines gazeuses.</li>
+      <li><strong>Les Gardes d'Élite :</strong> Les gardes personnels de la Gouverneure carburent à un cocktail
+        expérimental appelé « Furie Impériale ». Si l'alarme sonne, ces gardes ne ressentiront ni la fatigue ni les tirs
+        de blaster légers pendant les <strong>dix premières minutes</strong> du combat. Il faudra viser la tête ou
+        utiliser des armes lourdes.</li>
+    </ul>
+
+    <div class="test-block">
+      <div class="test-title">⬡ Coup de Main Chirurgical — Sshirak</div>
+      <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Médecine
+          (Intellect)</span></div>
+      <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Difficile (3
+          Violets)</span></div>
+      <div class="test-row"><span class="test-label">Bonus</span><span class="test-value" style="color:#40cc70;">+1 Dé
+          Bleu</span> <span class="test-value" style="font-size:13px;color:var(--text-dim)">si Sshirak utilise son
+          propre medpac ou un outil stérile</span></div>
+      <div class="test-row"><span class="test-label">Contrainte</span><span class="dice-dark">+1 Dé Noir</span> <span
+          class="test-value" style="font-size:13px;color:var(--text-dim)">Environnement mal éclairé et glauque</span>
+      </div>
+    </div>
+    <table class="dice-table">
+      <tr class="result-success">
+        <td>Succès</td>
+        <td>Sshirak clampe l'artère avec une précision chirurgicale et stabilise le patient. Doc Vilsa essuie la sueur
+          de son front, le regarde avec un respect nouveau et lâche ses informations sur le Nexu et les gardes. Elle
+          ouvre également son armoire sécurisée pour les achats.</td>
+      </tr>
+      <tr class="result-fail">
+        <td>Échec</td>
+        <td>Sshirak hésite ou utilise le mauvais instrument. Le mercenaire hurle de douleur et tombe dans les pommes.
+          Vilsa pousse Sshirak sans ménagement : <em>« Dégagez de ma table, boucher ! »</em> Elle refusera de partager
+          ses secrets, à moins d'un lourd pot-de-vin (au moins 500 crédits).</td>
+      </tr>
+      <tr class="result-adv">
+        <td>Avantage</td>
+        <td>Pendant l'intervention, Sshirak remarque un flacon de tranquillisant animal sur un comptoir. C'est
+          exactement le dosage que le dresseur de la Tour utilisait pour le Nexu. Sshirak peut le subtiliser
+          discrètement (test de Larcin Facile) ou convaincre Vilsa de lui vendre à bas prix.</td>
+      </tr>
+      <tr class="result-threat">
+        <td>Menace</td>
+        <td>Le sang gicle violemment, maculant la tenue de Sshirak et d'un autre PJ proche. L'odeur métallique est
+          persistante. Le groupe subit <strong>1 Dé Noir</strong> sur tous les tests de furtivité basés sur l'odorat
+          <em>(ce qui sera critique face au Nexu plus tard)</em>.</td>
+      </tr>
+      <tr class="result-triumph">
+        <td>Triomphe</td>
+        <td>Une opération magistrale digne d'un chirurgien de la République. Sshirak sauve non seulement le patient,
+          mais synthétise rapidement un coagulant à partir des produits locaux. Impressionnée, Vilsa offre gratuitement
+          <strong>2 stimpacks</strong> et fournit un plan détaillé des rondes médicales de la Tour.</td>
+      </tr>
+      <tr class="result-disaster">
+        <td>Désastre</td>
+        <td>Le patient fait un arrêt cardiaque sous les mains de Sshirak. Vilsa est furieuse. Pire encore, le patient
+          était un lieutenant d'un gang local de la Ville Basse. La clinique est soudainement encerclée par quatre
+          voyous armés qui viennent chercher des comptes.</td>
+      </tr>
+    </table>
+
+    <h3>Marché Noir Médical — Inventaire Vilsa</h3>
+    <table class="shop-table">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Description</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-name">Stimpacks</td>
+          <td>Équipement de base pour survivre à des tirs de blaster.</td>
+          <td class="price">50 cr./u.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Neuro-Sédatif Lourd</td>
+          <td>Seringue pressurisée capable de terrasser une créature de grande taille (type Nexu) si injectée au
+            contact. Nécessite un test de Corps à Corps réussi.</td>
+          <td class="price">300 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Masques Respiratoires (×4)</td>
+          <td>Essentiels pour passer par les égouts ou utiliser du gaz dans les conduits d'aération.</td>
+          <td class="price">150 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Patch Synth-Peau Thermique</td>
+          <td>Soigne 1 Blessure et masque la signature thermique de la zone recouverte pendant quelques heures. Trompe
+            les scanners corporels impériaux.</td>
+          <td class="price">200 cr./u.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Adrénaline Purifiée</td>
+          <td>Ignore les effets des Blessures Critiques pendant une scène entière. Inflige <strong>4 Stress</strong> une
+            fois la scène terminée.</td>
+          <td class="price">400 cr.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- KALEEN -->
+    <div class="location-header">
+      <div class="location-icon">🟠</div>
+      <div>
+        <h3>L'Atelier de Kaleen « Soudure » Rax</h3><small>Étincelles et Résistance · Planque Sécurisée</small>
+      </div>
+    </div>
+    <div class="narration">
+      La devanture de l'atelier n'a pas de nom, juste une tôle ondulée rouillée et un volet à moitié baissé. En vous
+      glissant à l'intérieur, le rugissement d'un chalumeau industriel couvre le bruit de la pluie. L'air est sec,
+      saturé de poussière de métal, d'ozone et d'une forte odeur d'huile de moteur surchauffée.<br><br>
+      Au fond du garage, sous le châssis éventré d'un speeder lourd, une femme s'extrait sur un chariot à roulettes.
+      <strong>Kaleen Rax</strong> abaisse son masque de soudure, révélant un visage dur, barré d'une cicatrice de
+      brûlure. Ses deux bras, à partir des coudes, sont des prothèses cybernétiques massives, aux vérins apparents,
+      faites pour soulever des moteurs, pas pour la dentelle.<br><br>
+      Quand vous parlez de la Tour et de la Gouverneure Haal, elle crache par terre avec un mépris non dissimulé.
+    </div>
+
+    <h3>L'Accord et le Repaire Sécurisé</h3>
+    <p>Kaleen hait l'Empire. La Gouverneure Haal a ruiné le syndicat des ferrailleurs de Reles et confisqué leurs
+      meilleures technologies sous couvert de « taxes impériales ». Kaleen vous propose un marché.</p>
+    <p>Elle offre son arrière-boutique comme quartier général — une pièce aveugle, isolée au plomb pour bloquer les
+      scanners impériaux, avec une vieille table holographique grésillante pour afficher les plans de Norel. En échange,
+      elle ne demande pas de crédits, mais un objet précis : le <strong>Générateur de Faille en Cortosis</strong>, une
+      relique de l'Ancienne République que la Gouverneure utilise comme simple presse-papier.</p>
+
+    <div class="test-block">
+      <div class="test-title">⬡ Sceller l'Alliance</div>
+      <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Négociation (Présence)
+          <em>ou</em> Commandement (Présence)</span></div>
+      <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Moyenne (2 Violets)</span>
+      </div>
+      <div class="test-row"><span class="test-label">Bonus</span><span class="test-value" style="color:#40cc70;">+1 Dé
+          Bleu</span> <span class="test-value" style="font-size:13px;color:var(--text-dim)">si le groupe a gardé un
+          profil bas jusqu'ici</span></div>
+      <div class="test-row"><span class="test-label">Contrainte</span><span class="dice-dark">+1 Dé Noir</span> <span
+          class="test-value" style="font-size:13px;color:var(--text-dim)">si les PJ ont causé une émeute retentissante
+          au Néon Violet</span></div>
+    </div>
+    <table class="dice-table">
+      <tr class="result-success">
+        <td>Succès</td>
+        <td>Kaleen frappe son poing métallique contre une cuve résonnante. <em>« Marché conclu. »</em> Elle vous ouvre
+          l'arrière-boutique, branche la table holographique et vous donne un accès illimité à son établi de
+          modification.</td>
+      </tr>
+      <tr class="result-fail">
+        <td>Échec</td>
+        <td>Kaleen rit jaune. <em>« Vous avez l'air d'une bande de cadavres en sursis. »</em> Elle accepte de vous louer
+          la planque, mais exige <strong>400 crédits</strong> d'avance.</td>
+      </tr>
+      <tr class="result-adv">
+        <td>Avantage</td>
+        <td>En discutant des accès, Kaleen vous pointe sur la carte une bouche d'aération industrielle à l'arrière de la
+          Tour, utilisée pour évacuer les gaz du grand générateur. Sale, dangereuse, mais sans caméras.</td>
+      </tr>
+      <tr class="result-threat">
+        <td>Menace</td>
+        <td>Un droïde sonde impérial de modèle Vipère passe lentement dans la ruelle, ses capteurs rouges balayant la
+          zone. Kaleen doit couper le courant en urgence. Le groupe subit <strong>1 Stress collectif</strong>.</td>
+      </tr>
+      <tr class="result-triumph">
+        <td>Triomphe</td>
+        <td>Vous avez enflammé sa fibre rebelle. Kaleen décide de vous aider activement et s'engage à pirater un relais
+          de communication civil au moment exact de votre infiltration, créant des interférences sur les fréquences
+          radio des Stormtroopers pendant l'alerte.</td>
+      </tr>
+      <tr class="result-disaster">
+        <td>Désastre</td>
+        <td>Un malentendu profond révèle une incompétence grave (absence de plan d'évacuation). Kaleen refuse
+          catégoriquement de vous laisser utiliser sa boutique. Elle vendra du matériel au prix fort, mais vous devrez
+          élaborer le plan sous la pluie.</td>
+      </tr>
+    </table>
+
+    <h3>Arsenal de Kaleen</h3>
+    <table class="shop-table">
+      <thead>
+        <tr>
+          <th>Article</th>
+          <th>Description</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-name">Chalumeau à Plasma Portatif</td>
+          <td>Fait fondre une serrure magnétique ou une charnière de porte lourde. En combat, compte comme arme de mêlée
+            improvisée très dangereuse.</td>
+          <td class="price">250 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Lance-Grappin Magnétique</td>
+          <td>Indispensable pour utiliser les puits de turbo-élévateurs. Câble en micro-fibres supportant le poids d'un
+            Wookiee.</td>
+          <td class="price">150 cr.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Charge de Sabotage</td>
+          <td>Explosif directionnel pour abattre un mur ou pulvériser un coffre blindé sans détruire la pièce entière.
+          </td>
+          <td class="price">400 cr./u.</td>
+        </tr>
+        <tr>
+          <td class="item-name">Mod Armure — Treillis Assombri</td>
+          <td>Revêtement chimique noir mat. Retire <strong>1 Dé Noir</strong> sur les tests de Furtivité dans la
+            pénombre.</td>
+          <td class="price">300 cr./armure</td>
+        </tr>
+        <tr>
+          <td class="item-name">Mod Arme — Lunette Thermique</td>
+          <td>Permet de repérer les cibles à travers la fumée ou dans l'obscurité totale.</td>
+          <td class="price">500 cr.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- JAXEN -->
+    <div class="divider"><span>✦</span></div>
+    <h2>L'Allée des Ordures : L'Ombre du Soleil Noir</h2>
+
+    <div class="narration">
+      L'obscurité y est presque totale, seulement brisée par les étincelles sporadiques de vieux transformateurs
+      grillés. Vous marchez sur un tapis mouvant de déchets organiques et de plastoïde brisé. L'odeur est abominable :
+      un relent de viande avariée, de fluides de refroidissement toxiques et de moisissure.<br><br>
+      C'est là, assis sur une caisse de munitions rouillée, qu'un homme les attend. Il est humain, jeune, le visage
+      dissimulé par la capuche de sa veste cirée. Une cigarette luminescente pend à ses lèvres.<br><br>
+      Il crache par terre et lève les mains en signe de paix. Il se présente sous le nom de <strong>Jaxen</strong>.
+      <em>« Vous posez beaucoup de questions en ville. Tour, sécurité, gouverneure… Vous avez de l'ambition, ou une
+        envie de mourir. Je m'en fiche. Mais j'ai les codes d'accès qui vous manquent, et je veux ma part du gâteau.
+        »</em>
+    </div>
+
+    <div class="npc-card">
+      <div class="npc-name">Jaxen — L'Agent Infiltré</div>
+      <div class="npc-role">Agent de Liaison · Soleil Noir · Menteur Professionnel</div>
+      <p><strong>Son utilité déclarée :</strong> S'il est engagé, Jaxen ajoute automatiquement <strong>1 Dé
+          Bleu</strong> à tous les tests d'Informatique de Silas. S'ils sont séparés, Jaxen peut pirater des portes de
+        son côté.</p>
+      <div class="alert">Son vrai but : Jaxen est un agent du Soleil Noir. Son syndicat veut mettre la main sur la
+        technologie du coffre — ou le Suaire lui-même — pour faire chanter le secteur. Il les aidera à entrer, mais au
+        moment de sortir, il bloquera les communications, verrouillera les portes derrière eux et partira avec le butin.
+      </div>
+      <div class="test-block">
+        <div class="test-title">⬡ Juger le Rat de Gouttière</div>
+        <div class="test-row"><span class="test-label">Compétence</span><span class="test-value">Psychologie (Volonté)
+            <em>ou</em> Pègre (Ruse)</span></div>
+        <div class="test-row"><span class="test-label">Difficulté</span><span class="dice-diff">Difficile (3
+            Violets)</span></div>
+        <div class="test-row"><span class="test-label">Contraintes</span><span class="dice-dark">1 Dé Noir</span> <span
+            class="test-value" style="font-size:13px;color:var(--text-dim)">Pénombre + attitude volontairement
+            fuyante</span></div>
+      </div>
+      <table class="dice-table">
+        <tr class="result-success">
+          <td>Succès</td>
+          <td>Vous décelez une faille dans son masque. Il est trop calme pour un simple rat des rues. Ses mains ne
+            tremblent pas. Il cache son jeu, mais ses compétences en piratage semblent authentiques. L'engager est un
+            risque calculé.</td>
+        </tr>
+        <tr class="result-fail">
+          <td>Échec</td>
+          <td>Son histoire de dette et de survie misérable est parfaite. Il joue sur votre corde sensible ou votre ego.
+            L'équipage ne voit en lui qu'un outil utile et désespéré, tombant droit dans le panneau.</td>
+        </tr>
+        <tr class="result-adv">
+          <td>Avantage</td>
+          <td>L'œil expert d'un PJ remarque un détail qui cloche. Son terminal de poignet, bien que sale et cabossé, est
+            un modèle <strong>Slicer-Pro militaire</strong> ultra-coûteux. Un rat des rues ne devrait pas posséder ça.
+          </td>
+        </tr>
+        <tr class="result-threat">
+          <td>Menace</td>
+          <td>En tentant de le cuisiner, l'un des PJ en dit trop sur les failles déjà trouvées (grâce à Marv ou Doc
+            Vilsa). Jaxen enregistre mentalement l'information. S'il vous trahit, il saura exactement par où vous
+            comptez fuir.</td>
+        </tr>
+        <tr class="result-triumph">
+          <td>Triomphe</td>
+          <td>En ajustant sa veste, Jaxen dévoile brièvement un tatouage très spécifique sur son avant-bras. Un
+            personnage identifie clairement le <strong>symbole du Soleil Noir</strong>. Les PJ connaissent sa véritable
+            allégeance avant même de commencer le casse.</td>
+        </tr>
+        <tr class="result-disaster">
+          <td>Désastre</td>
+          <td>L'interrogatoire tourne à la confrontation d'ego. Non seulement les PJ ne décèlent rien, mais Jaxen prend
+            l'ascendant psychologique. Il exige d'avoir le contrôle principal sur le piratage du réseau de sécurité de
+            la Tour, s'assurant ainsi la place parfaite pour vous enfermer de l'intérieur.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ════════════════════ BILAN ════════════════════ -->
+    <div class="divider"><span>✦</span></div>
+    <div class="chapter">
+      <div class="chapter-sub">Récapitulatif</div>
+      <h1>Le Bilan : Ce qu'ils Savent</h1>
+    </div>
+
+    <div class="summary-box">
+      <h3>Architecture et Failles — Norel &amp; Kaleen</h3>
+      <ul>
+        <li>Norel a fourni un plan partiel des <strong>Niveaux 51 et 52</strong>, indiquant la position du Security
+          Nexus et du Sanctuaire.</li>
+        <li>Une maintenance des conduits de ventilation désactive les capteurs de mouvement du <strong>secteur
+            4</strong> ce soir.</li>
+        <li>Kaleen a pointé une bouche d'aération industrielle à l'arrière de la Tour — sale, dangereuse, mais dépourvue
+          de caméras.</li>
+      </ul>
+    </div>
+
+    <div class="summary-box">
+      <h3>Sécurité Électronique — Marv &amp; Jaxen</h3>
+      <ul>
+        <li>Le Suaire est protégé par un champ de stase énergétique (Niveau 52) relié à une <strong>génératrice de
+            secours indépendante</strong>.</li>
+        <li>La console de la salle des trophées exige un <strong>code d'accès rotatif ET une empreinte
+            thermique</strong> approuvée.</li>
+        <li>Les droïdes sentinelles du niveau 52 ont un cycle de reboot de <strong>3 secondes</strong> toutes les heures
+          piles.</li>
+        <li><em>Si Jaxen est recruté :</em> slicer supplémentaire disponible — mais bombe à retardement si son
+          allégeance au Soleil Noir n'a pas été découverte.</li>
+      </ul>
+    </div>
+
+    <div class="summary-box">
+      <h3>Menaces Biologiques — Doc Vilsa</h3>
+      <ul>
+        <li>La salle des trophées est gardée par un <strong>Nexu génétiquement modifié</strong>, presque insensible à la
+          douleur, mais vulnérable aux neurotoxines gazeuses.</li>
+        <li>Les gardes personnels de la Gouverneure utilisent la <strong>« Furie Impériale »</strong> : insensibles à la
+          fatigue et aux tirs de blaster légers pendant les dix premières minutes d'un combat.</li>
+      </ul>
+    </div>
+
+    <h2>Les Plans d'Infiltration Possibles</h2>
+
+    <div class="option-block">
+      <div class="option-header">
+        <div class="option-badge">Option A</div>
+        <div class="option-title">Le Cheval de Troie — La Voie Souterraine</div>
+      </div>
+      <div class="option-body">
+        <p><strong>L'idée :</strong> Utiliser les égouts nauséabonds pour atteindre le Hangar de Marchandises de la
+          Tour.</p>
+        <p><strong>L'exécution :</strong> Se faufiler dans le système de traitement des déchets ou se cacher à
+          l'intérieur d'une caisse de ravitaillement vide destinée aux étages supérieurs. Il faudra pirater le manifeste
+          de transport pour que leur caisse passe les scanners sous une fausse étiquette (<em>« Matériel biologique
+            inerte »</em> ou <em>« Pièces de droïdes »</em>) et se faire livrer directement au Niveau 51, voire 52.</p>
+        <div class="alert">L'odeur affreuse pourrait alerter les gardes plus tard, les créatures des égouts, ou un
+          droïde de protocole impérial détectant un poids non conforme dans la caisse.</div>
+      </div>
+    </div>
+
+    <div class="option-block">
+      <div class="option-header">
+        <div class="option-badge b">Option B</div>
+        <div class="option-title">L'Oiseau de Proie — La Voie des Toits</div>
+      </div>
+      <div class="option-body">
+        <p><strong>L'idée :</strong> Grimper sur le toit plat du secteur 7, affronter la tempête cinglante, et traverser
+          un gouffre vertigineux de vingt mètres au-dessus du vide pour atteindre la bouche d'aération externe de la
+          Tour.</p>
+        <p><strong>L'exécution :</strong> Utiliser des câbles, le lance-grappin magnétique de Kaleen ou des jetpacks
+          pour la traversée. Une fois dans les conduits, pirater ou saboter une turbine de climatisation géante aux
+          pales tranchantes pour pouvoir grimper dans le puits principal menant au Niveau 51.</p>
+        <div class="alert">Une chute mortelle dans le vide, les patrouilles de droïdes sondes Viper sur la façade, et le
+          risque d'être broyé par la turbine.</div>
+      </div>
+    </div>
+
+    <div class="mj-hint" style="margin-top:40px;"><strong>Note MJ :</strong> Vos joueurs ont toutes les cartes en main
+      pour décider comment ils vont braver la Tour de la Gouverneure Haal. Bonne chasse.</div>
+
+    <div class="stars-strip" style="margin-top:60px;opacity:0.3;">· · · · · · · ✦ · · · · · · · ✦ · · · · · · · ✦ · · ·
+      · · · ·</div>
+
+  </div>
+</body>
+
+</html>
